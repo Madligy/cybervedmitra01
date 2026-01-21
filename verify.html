@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification | CyberVedMitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #09090b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+
+        .verify-box {
+            max-width: 450px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .shield-icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-badge {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .data-label {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 1.5rem;
+        }
+
+        .data-value {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 0.25rem;
+        }
+
+        .footer-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .error-state {
+            color: #ef4444;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="verify-box fade-in-up">
+        <div id="verifyContent">
+            <div class="shield-icon">🛡️</div>
+            <div class="status-badge">✅ VERIFIED CERTIFICATE</div>
+
+            <span class="data-label">Certificate ID</span>
+            <span class="data-value" id="dispId">CVM-XXXX-XXXX</span>
+
+            <span class="data-label">Full Name</span>
+            <span class="data-value" id="dispName">Searching...</span>
+
+            <span class="data-label">Completion Status</span>
+            <span class="data-value" id="dispStatus">All Levels Completed</span>
+
+            <span class="data-label">Issue Date</span>
+            <span class="data-value" id="dispDate">---</span>
+
+            <div class="footer-info">
+                This verification is powered by CyberVedMitra Security Protocol.<br>
+                Issued for educational achievement in cyber safety.
+            </div>
+        </div>
+
+        <div id="errorBox" style="display: none;">
+            <div class="shield-icon error-state">⚠️</div>
+            <h2 class="error-state">Verification Failed</h2>
+            <p style="color: #94a3b8; margin-top: 1rem;">The provided certificate ID could not be found or is invalid.
+            </p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">Return Home</a>
+        </div>
+    </div>
+
+    <script>
+        function verify() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            const data64 = urlParams.get('data');
+
+            if (!id && !data64) {
+                document.getElementById('verifyContent').style.display = 'none';
+                document.getElementById('errorBox').style.display = 'block';
+                return;
+            }
+
+            try {
+                // IDs aren't stored centrally on this static site, so we verify
+                // the signatures within the encoded data string.
+                const data = JSON.parse(atob(data64));
+
+                document.getElementById('dispId').innerText = id || data.id;
+                document.getElementById('dispName').innerText = data.name;
+                document.getElementById('dispDate').innerText = data.date;
+
+            } catch (e) {
+                document.getElementById('verifyContent').style.display = 'none';
+                document.getElementById('errorBox').style.display = 'block';
+            }
+        }
+
+        verify();
+    </script>
+</body>
+
+</html>

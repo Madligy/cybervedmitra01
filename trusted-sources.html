@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Sources | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .sources-container {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .source-group {
+            margin-bottom: 4rem;
+        }
+
+        .source-group h2 {
+            color: #fff;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-card:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .link-info {
+            flex-grow: 1;
+        }
+
+        .link-name {
+            color: #fff;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .link-url {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-family: monospace;
+            opacity: 0.8;
+        }
+
+        .external-icon {
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .link-card:hover .external-icon {
+            opacity: 1;
+        }
+
+        .disclaimer-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 4rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="resources.html" class="logo">← Back to Resources</a>
+            <a href="index.html" class="btn btn-text"
+                style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">Home</a>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h1 style="color: #fff; font-size: 2.5rem; margin-bottom: 0.5rem;">🌍 Trusted Sources</h1>
+            <p style="color: var(--accent); font-weight: 600;">Official Cybersecurity Organizations & Portals</p>
+        </div>
+
+        <div class="sources-container">
+
+            <!-- India Group -->
+            <div class="source-group">
+                <h2>India (Government & Official)</h2>
+                <div class="links-grid">
+                    <a href="https://www.cert-in.org.in" target="_blank" class="link-card">
+                        <div class="link-icon">🇮🇳</div>
+                        <div class="link-info">
+                            <span class="link-name">CERT-In</span>
+                            <span class="link-url">cert-in.org.in</span>
+                        </div>
+                        <span class="external-icon">↗️</span>
+                    </a>
+                    <a href="https://cybercrime.gov.in" target="_blank" class="link-card">
+                        <div class="link-icon">👮</div>
+                        <div class="link-info">
+                            <span class="link-name">National Cybercrime Portal</span>
+                            <span class="link-url">cybercrime.gov.in</span>
+                        </div>
+                        <span class="external-icon">↗️</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- International Group -->
+            <div class="source-group">
+                <h2>International (Recognized Official)</h2>
+                <div class="links-grid">
+                    <a href="https://staysafeonline.org" target="_blank" class="link-card">
+                        <div class="link-icon">🌐</div>
+                        <div class="link-info">
+                            <span class="link-name">Stay Safe Online</span>
+                            <span class="link-url">staysafeonline.org</span>
+                        </div>
+                        <span class="external-icon">↗️</span>
+                    </a>
+                    <a href="https://www.childnet.com" target="_blank" class="link-card">
+                        <div class="link-icon">🛡️</div>
+                        <div class="link-info">
+                            <span class="link-name">Childnet</span>
+                            <span class="link-url">childnet.com</span>
+                        </div>
+                        <span class="external-icon">↗️</span>
+                    </a>
+                    <a href="https://www.saferinternet.org" target="_blank" class="link-card"
+                        style="grid-column: span 1;">
+                        <div class="link-icon">✨</div>
+                        <div class="link-info">
+                            <span class="link-name">Safer Internet Day</span>
+                            <span class="link-url">saferinternet.org</span>
+                        </div>
+                        <span class="external-icon">↗️</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <p><strong>⚠️ External Link Disclaimer:</strong> These are official third-party websites. Cybervedmitra
+                    does not manage their content, but these are internationally recognized trusted sources for
+                    cybersecurity education.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

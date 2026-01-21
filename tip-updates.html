@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Updates | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Saturday Tip</span>
+            <h1 class="tip-title">Importance of Software Updates</h1>
+
+            <div class="tip-body">
+                <p>We often see notification bubbles on our phones or computers asking us to update our software. While
+                    it can be annoying, these updates are one of your most powerful weapons against cyber attacks.</p>
+
+                <div class="highlight-box">
+                    "Updates fix security holes. Don't hit 'Remind Me Later' — protect your device today."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>Software is written by humans, and sometimes humans make mistakes that leave 'holes' or
+                    vulnerabilities in the code. Hackers find these holes and use them to get inside. Updates contain
+                    'patches' that fill these holes and lock the door.</p>
+
+                <h3>Real-World Example</h3>
+                <p>Imagine your house has a broken window latch that you didn't know about. A burglar finds it and uses
+                    it to get in. An 'update' is like the repairman coming and replacing that latch with a stronger one
+                    so the burglar can't get in anymore.</p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Turn on Auto-Updates:</strong> Let your phone and computer update themselves while you
+                        sleep.</li>
+                    <li><strong>Don't Delay:</strong> Install security updates as soon as you see them. The longer you
+                        wait, the longer the window is open for hackers.</li>
+                    <li><strong>Update Apps Too:</strong> It's not just your OS — games and social media apps need
+                        updates to stay safe.</li>
+                    <li><strong>Beware of Fake Updates:</strong> Only update your software through official settings
+                        menus or app stores. Never click a pop-up on a random website that says "Your software is out of
+                        date! Click here to fix."</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

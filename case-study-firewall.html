@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: 2025 Firewall Breach | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .case-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .case-tag {
+            color: #ef4444;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .case-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .case-intro {
+            font-size: 1.2rem;
+            color: #fff;
+            background: rgba(239, 68, 68, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #ef4444;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .timeline-item h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .lesson-box {
+            background: rgba(34, 197, 94, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 4rem;
+        }
+
+        .lesson-box h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lesson-list li {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .lesson-list li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+        }
+
+        .conclusion {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="case-container fade-in-up">
+            <span class="case-tag">Real-World Incident</span>
+            <h1 class="case-title">The 2025 Firewall Breach</h1>
+
+            <div class="case-intro">
+                "In early 2025, a global technology giant suffered a massive data breach. Despite spending millions on
+                firewalls, hackers still got in. This event changed how we think about security forever."
+            </div>
+
+            <h3 style="color: #fff; margin-bottom: 1.5rem;">Incident Timeline: How it Happened</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>1. The Trick (Entry)</h4>
+                    <p>It didn't start with a computer program. It started with a human. An employee received a fake
+                        email that looked just like an internal HR notice. They clicked a link and unknowingly shared
+                        their login credentials.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2. Past the Wall</h4>
+                    <p>The company had a very strong firewall. However, because the hacker had a "valid" username and
+                        password, the firewall essentially opened the front door and said, "Welcome back, employee!" It
+                        didn't realize it was a hacker in disguise.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>3. Moving Silently</h4>
+                    <p>Once inside, the hacker moved from the employee's simple computer to the high-security database
+                        servers. Because the internal network trusted everyone inside the "wall," it didn't check the
+                        hacker's identity again.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>4. The Theft</h4>
+                    <p>The hacker slowly copied sensitive data and sent it out in small chunks to avoid triggering any
+                        alarms. By the time they were caught, the data of millions of users was already gone.</p>
+                </div>
+            </div>
+
+            <div class="lesson-box">
+                <h3>💡 Key Lessons Learned</h3>
+                <ul class="lesson-list">
+                    <li><strong>A Firewall is Not Enough:</strong> It's like a lock on your front door. If a thief
+                        steals your key, the lock is useless.</li>
+                    <li><strong>Internal Trust is Dangerous:</strong> We can't assume that everyone inside a network is
+                        safe. This is why we need Zero Trust (Tip of the Day!).</li>
+                    <li><strong>Phishing is Still Huge:</strong> Even the biggest companies can be taken down by a
+                        single bad click.</li>
+                    <li><strong>Detection Matters:</strong> It's not just about stopping hackers, but about finding them
+                        quickly if they do get in.</li>
+                </ul>
+            </div>
+
+            <div class="conclusion">
+                "This breach taught us that identity is the new perimeter. Security must happen for every single action,
+                not just at the front door."
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Return to Awareness</a>
+            </div>
+        </article>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            const el = document.querySelector('.fade-in-up');
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Guide | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .background-glow,
+            .nav-pill,
+            .download-btn-container {
+                display: none;
+            }
+
+            .parent-container {
+                color: #000 !important;
+                background: none !important;
+                border: none !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            .guide-section {
+                border-bottom: 2px solid #eee !important;
+                color: #000 !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            p,
+            li {
+                color: #000 !important;
+            }
+
+            .tip-card {
+                border: 1px solid #ccc !important;
+                background: none !important;
+                color: #000 !important;
+            }
+        }
+
+        .parent-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .guide-section {
+            margin-bottom: 3.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .guide-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: var(--accent);
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .social-proof {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="resources.html" class="logo">← Back to Resources</a>
+            <a href="index.html" class="btn btn-text"
+                style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">Home</a>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div id="pdf-content" class="parent-container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h1 style="color: #fff; font-size: 2.2rem; margin-bottom: 0.5rem;">👨‍👩‍👧 PARENTS & GUARDIANS GUIDE
+                </h1>
+                <p style="color: #60a5fa; font-weight: 600;">Supporting Children in the Digital World</p>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="guide-section">
+                <div class="section-header">
+                    <div class="section-icon">🌐</div>
+                    <h2 style="color: #fff; font-size: 1.5rem; margin: 0;">Why Cyber Awareness Matters</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 1rem;">Children use the internet for:</h4>
+                        <ul class="bullet-list">
+                            <li>Online classes & Research</li>
+                            <li>Games & Entertainment</li>
+                            <li>Social media & Chatting</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #ef4444; margin-bottom: 1rem;">Potential Risks:</h4>
+                        <ul class="bullet-list">
+                            <li>Financial scams</li>
+                            <li>Cyberbullying</li>
+                            <li>Privacy & Data leaks</li>
+                        </ul>
+                    </div>
+                </div>
+                <p
+                    style="margin-top: 2rem; color: #94a3b8; font-style: italic; background: rgba(59, 130, 246, 0.05); padding: 1rem; border-radius: 8px;">
+                    "Cyber awareness helps children stay safe, curious, and confident online."
+                </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="guide-section">
+                <div class="section-header">
+                    <div class="section-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">👂</div>
+                    <h2 style="color: #fff; font-size: 1.5rem; margin: 0;">How Parents Can Support</h2>
+                </div>
+                <div class="tip-grid">
+                    <div class="tip-card" style="border-left-color: #22c55e;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">Open Dialogue</h4>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Talk openly about internet use. Make them feel
+                            safe to report anything strange.</p>
+                    </div>
+                    <div class="tip-card" style="border-left-color: #3b82f6;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">Teach Safety</h4>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Teach safety, not fear. Explain the 'why' behind
+                            the rules.</p>
+                    </div>
+                    <div class="tip-card" style="border-left-color: #eab308;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">Set Limits</h4>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Set healthy screen-time limits to encourage
+                            balance.</p>
+                    </div>
+                    <div class="tip-card" style="border-left-color: #a855f7;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">Ask Questions</h4>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Encourage children to ask questions before
+                            clicking or sharing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="guide-section">
+                <div class="section-header">
+                    <div class="section-icon" style="background: rgba(234, 179, 8, 0.1); color: #eab308;">🔐</div>
+                    <h2 style="color: #fff; font-size: 1.5rem; margin: 0;">Important Safety Tips</h2>
+                </div>
+                <ul class="bullet-list">
+                    <li><strong>No Password Sharing:</strong> Teach children not to share passwords with anyone (except
+                        you).</li>
+                    <li><strong>Link Caution:</strong> Explain the dangers of clicking unknown links or ads.</li>
+                    <li><strong>Privacy First:</strong> Guide them on setting social media profiles to 'Private'.</li>
+                    <li><strong>App Monitoring:</strong> Stay aware of the apps and games they use regularly.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="warning-box">
+                <div class="section-header" style="margin-bottom: 1rem;">
+                    <span style="font-size: 1.5rem;">🚨</span>
+                    <h2 style="color: #ef4444; font-size: 1.4rem; margin: 0;">Signs a Child May Need Help</h2>
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 1.5rem;">
+                    <li>Sudden fear or stress after using the internet</li>
+                    <li>Extreme secrecy about online activity</li>
+                    <li>Receiving strange messages or items from unknown contacts</li>
+                </ul>
+                <div
+                    style="background: #fff; color: #000; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: 700; text-align: center;">
+                    👉 STAY CALM AND SUPPORTIVE
+                </div>
+            </div>
+
+            <div class="social-proof">
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">🤝 Work Together</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">
+                    Awareness + Parental Guidance + Teacher Support = A safer digital future for everyone.
+                </p>
+                <div style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">
+                    © 2024 Cybervedmitra - Family Education Resource
+                </div>
+            </div>
+
+        </div>
+
+        <div class="download-btn-container" style="text-align: center; margin: 3rem 0;">
+            <button onclick="downloadPDF()" class="btn btn-primary" id="downloadBtn"
+                style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 12px;">
+                📥 Download Parent Guide (PDF)
+            </button>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('pdf-content');
+            const btn = document.getElementById('downloadBtn');
+            const originalText = btn.innerHTML;
+
+            btn.innerText = "⏳ Preparing Document...";
+            btn.style.opacity = "0.7";
+
+            const opt = {
+                margin: [0.4, 0.4],
+                filename: 'Cyber_Safety_Parent_Guide.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#050505' },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.style.opacity = "1";
+            });
+        }
+    </script>
+</body>
+
+</html>

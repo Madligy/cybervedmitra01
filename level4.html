@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybervedmitra | Level 4: Social Media Safety</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .level-page-header {
+            padding-top: 8rem;
+            text-align: center;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-visual {
+            flex: 0 0 250px;
+            height: 250px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .list-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .quiz-container {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #d4d4d8;
+        }
+
+        .quiz-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .quiz-btn.correct {
+            background: rgba(34, 197, 94, 0.2) !important;
+            border-color: #22c55e !important;
+            color: #fff !important;
+        }
+
+        .quiz-btn.wrong {
+            background: rgba(239, 68, 68, 0.2) !important;
+            border-color: #ef4444 !important;
+            color: #fff !important;
+        }
+
+        /* Activity Card */
+        .activity-card {
+            background: linear-gradient(145deg, rgba(234, 179, 8, 0.05), rgba(234, 179, 8, 0.01));
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <a href="learn.html" class="btn-return-home" style="top: 2rem; left: 2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Learn
+    </a>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <button class="hamburger-btn" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="header-auth-wrapper">
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-text" style="color: #fff; margin-right: 15px;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Sign
+                    Up</a>
+            </div>
+            <button class="btn btn-text btn-logout-header hidden" onclick="logout()"
+                style="color: #ef4444; font-weight: 600;">Logout</button>
+        </div>
+    </header>
+
+    <!-- Menu Overlay (Standard) -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-links">
+            <li><a href="index.html" onclick="toggleMenu()"><span class="menu-label">Home</span></a></li>
+            <li><a href="about.html" onclick="toggleMenu()"><span class="menu-label">About</span></a></li>
+            <li><a href="learn.html" onclick="toggleMenu()"><span class="menu-label">Learn</span></a></li>
+            <li><a href="labs.html" onclick="toggleMenu()"><span class="menu-label">Labs</span></a></li>
+            <li><a href="resources.html" onclick="toggleMenu()"><span class="menu-label">Resources</span></a></li>
+            <li><a href="awareness.html" onclick="toggleMenu()"><span class="menu-label">Awareness</span></a></li>
+            <li><a href="contact.html" onclick="toggleMenu()"><span class="menu-label">Contact</span></a></li>
+            <li class="dashboard-menu-item" style="display: none;"><a href="dashboard.html" onclick="toggleMenu()"><span
+                        class="menu-label">Dashboard</span></a></li>
+            <li><a href="#" onclick="logout(); return false;" style="color: #ef4444;"><span
+                        class="menu-label">Logout</span></a></li>
+        </ul>
+    </div>
+
+    <main class="container level-page-header">
+        <span
+            style="color: #a855f7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; display: block;">Level
+            4</span>
+        <h1 class="page-title fade-in-up">Social Media Smarts <span class="accent-text">(Expert)</span></h1>
+
+        <div class="fade-in-up delay-1" style="max-width: 700px; margin: 0 auto 4rem auto; text-align: center;">
+            <p style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem;">📱 Scroll smart, stay safe.</p>
+            <p style="color: var(--text-secondary);">Master the art of privacy settings, avoid oversharing, and deal
+                with online bullies.</p>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #a1a1aa;">⏱️ Time needed: 25 minutes</div>
+        </div>
+
+        <!-- Section 1: Privacy Settings -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">⚙️ 1. Lock Down Your Profile</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>By default, many social media apps make your posts public for the whole world to see. You don't
+                        want that!</p>
+
+                    <div class="list-box" style="border-color: #a855f7;">
+                        <strong style="color: #fff;">Smart Settings:</strong>
+                        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #d4d4d8;">
+                            <li>🔒 Set account to "Private"</li>
+                            <li>👥 Approve followers/friends manually</li>
+                            <li>🚫 Turn off location tagging for posts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-visual" style="border-color: #a855f7;">
+                    👁️
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Oversharing -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">📢 2. Oversharing is Dangerous</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>Posting photos of your school schedule, your plane tickets, or your house can tell criminals
+                        exactly where you are.</p>
+                    <p style="margin-top: 1rem;"><strong>Rule of Thumb:</strong> If you wouldn't show it to a stranger
+                        on the street, don't post it online.</p>
+                </div>
+                <div class="section-visual" style="border-color: #a855f7;">
+                    📸
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Cyberbullying -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">💬 3. Handling Cyberbullying</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>Bullying online is just as bad as real life. It includes mean comments, spreading rumors, or
+                        excluding people.</p>
+
+                    <div style="margin-top: 1.5rem;">
+                        <strong style="color: #fff;">What to do if you see it:</strong>
+                        <ul style="color: #d4d4d8; margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>✋ Don't reply. Bullies want attention.</li>
+                            <li>📸 Screenshot the evidence.</li>
+                            <li>🚫 Block and Report the user.</li>
+                            <li>🗣️ Tell an adult you trust.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-visual" style="border-color: #3b82f6;">
+                    🚫
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-container fade-in-up delay-3">
+            <h2 style="color: #fff; margin-bottom: 0.5rem;">🧠 Social Media Quiz</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Are you a pro?</p>
+
+            <!-- Q1 -->
+            <div class="quiz-question">
+                <p style="font-weight: 600; color: #fff; margin-bottom: 1rem;">Q1: You snapped a pic of your new credit
+                    card. Should you post it?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)">A) NO! Never.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">B) Yes, but cover the numbers with a
+                        sticker emoji.</button>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="quiz-question">
+                <p style="font-weight: 600; color: #fff; margin-bottom: 1rem;">Q2: Someone writes a mean comment on your
+                    photo. What's the best response?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">A) Write something mean back.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)">B) Screenshot, block, and tell an
+                        adult.</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Footer -->
+        <div
+            style="margin-top: 4rem; margin-bottom: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
+            <h2 style="color: #fff;">🎉 Level 4 Complete!</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">You're almost at the top.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="level5.html" class="btn btn-primary">👉 Start Final Level 5</a>
+                <a href="learn.html" class="btn" style="border: 1px solid rgba(255,255,255,0.1); color: #fff;">Back to
+                    Learn Page</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-btn');
+            buttons.forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                b.style.pointerEvents = 'none';
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.innerHTML += ' ✅';
+            } else {
+                btn.classList.add('wrong');
+                btn.innerHTML += ' ❌';
+            }
+        }
+
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>

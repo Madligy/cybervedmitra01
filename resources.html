@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <button class="hamburger-btn" aria-label="Toggle Menu" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="header-auth-wrapper">
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-text" style="color: #fff; margin-right: 15px;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Sign
+                    Up</a>
+            </div>
+            <button class="btn btn-text btn-logout-header hidden" onclick="logout()"
+                style="color: #ef4444; font-weight: 600;">Logout</button>
+        </div>
+    </header>
+
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-links">
+            <li>
+                <a href="index.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="menu-label">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="about.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="menu-label">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="learn.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span class="menu-label">Learn</span>
+                </a>
+            </li>
+            <li>
+                <a href="labs.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <span class="menu-label">Labs</span>
+                </a>
+            </li>
+            <li>
+                <a href="resources.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span class="menu-label">Resources</span>
+                </a>
+            </li>
+            <li>
+                <a href="awareness.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3" />
+                    </svg>
+                    <span class="menu-label">Awareness</span>
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span class="menu-label">Contact</span>
+                </a>
+            </li>
+            <li class="dashboard-menu-item" style="display: none;">
+                <a href="dashboard.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                    <span class="menu-label">Dashboard</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="container page-header">
+        <span
+            style="color: var(--accent); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Knowledge
+            Hub 📚</span>
+        <h1 class="page-title fade-in-up">Resources & Learning</h1>
+        <p class="fade-in-up delay-1" style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 4rem auto;">
+            Free, safe, and student-friendly content to help you master cyber safety.
+            <br><span style="color: #22c55e; font-size: 0.9rem; margin-top: 0.5rem; display: block;">✅ 100% Free • 🛡️
+                Safe Links • 🚫 No Ads</span>
+        </p>
+
+        <!-- Section 1: Guides -->
+        <h2 class="resource-section-title fade-in-up delay-1">📘 Cyber Safety Guides (Easy Reads)</h2>
+        <div class="resource-grid fade-in-up delay-1">
+
+            <!-- Card 1 -->
+            <div class="resource-card res-blue">
+                <div class="res-icon">🧠</div>
+                <h3 class="res-title">Beginner Cyber Safety</h3>
+                <p class="res-desc">A complete starter guide for students new to the internet.</p>
+                <ul class="res-list">
+                    <li>Internet basics</li>
+                    <li>Password safety</li>
+                    <li>Safe browsing</li>
+                </ul>
+                <a href="guide-beginner.html" class="btn-resource">👉 Read Guide</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="resource-card res-purple">
+                <div class="res-icon">📱</div>
+                <h3 class="res-title">Social Media Safety</h3>
+                <p class="res-desc">How to stay safe on Instagram, Snapchat, and connect safely.</p>
+                <ul class="res-list">
+                    <li>Privacy settings</li>
+                    <li>Fake profiles</li>
+                    <li>Handling bullying</li>
+                </ul>
+                <a href="guide-social.html" class="btn-resource">👉 View Guide</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="resource-card res-orange">
+                <div class="res-icon">🎮</div>
+                <h3 class="res-title">Gaming Safety Guide</h3>
+                <p class="res-desc">Play smart and protect your gaming accounts from scams.</p>
+                <ul class="res-list">
+                    <li>Safe gaming habits</li>
+                    <li>Avoiding trade scams</li>
+                    <li>Protecting skins/items</li>
+                </ul>
+                <a href="guide-gaming.html" class="btn-resource">👉 Explore Guide</a>
+            </div>
+        </div>
+
+        <!-- Section 2: Videos & Interactive -->
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+
+            <!-- Videos -->
+            <div class="fade-in-up delay-2">
+                <h2 class="resource-section-title">🎥 Learning Videos</h2>
+                <div class="resource-card res-red">
+                    <div class="res-icon">▶️</div>
+                    <h3 class="res-title">Cyber Basics Series</h3>
+                    <p class="res-desc">Short, animated videos explaining complex topics simply.</p>
+                    <ul class="res-list">
+                        <li>What is cybersecurity?</li>
+                        <li>Internet safety rules</li>
+                        <li>How hackers trick people</li>
+                    </ul>
+                    <a href="#" class="btn-resource">👉 Watch Videos</a>
+                </div>
+            </div>
+
+            <!-- Worksheets -->
+            <div class="fade-in-up delay-2">
+                <h2 class="resource-section-title">🧪 Worksheets & Activities</h2>
+                <div class="resource-card res-green">
+                    <div class="res-icon">📝</div>
+                    <h3 class="res-title">Activities Pack</h3>
+                    <p class="res-desc">Downloadable sheets to practice what you've learned.</p>
+                    <ul class="res-list">
+                        <li>Spot the phishing</li>
+                        <li>Password checkers</li>
+                        <li>Daily habits tracker</li>
+                    </ul>
+                    <a href="activities-pack.html" class="btn-resource">👉 Download & Try</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 3: Extra Resources -->
+        <h2 class="resource-section-title fade-in-up delay-3">📢 Posters & Parents</h2>
+        <div class="resource-grid fade-in-up delay-3">
+            <!-- Posters -->
+            <div class="resource-card res-yellow">
+                <div class="res-icon">🖼️</div>
+                <h3 class="res-title">Classroom Posters</h3>
+                <p class="res-desc">Colorful posters to stick on your wall or school board.</p>
+                <a href="posters.html" class="btn-resource">👉 View Posters</a>
+            </div>
+
+            <!-- Parents -->
+            <div class="resource-card res-blue">
+                <div class="res-icon">👨‍👩‍👧</div>
+                <h3 class="res-title">Parents & Teachers</h3>
+                <p class="res-desc">Guidance on how to talk to children about digital safety.</p>
+                <a href="parent-guide.html" class="btn-resource">👉 View Parent Guide</a>
+            </div>
+
+            <!-- Trusted Sites -->
+            <div class="resource-card res-purple">
+                <div class="res-icon">🌍</div>
+                <h3 class="res-title">Trusted Sources</h3>
+                <p class="res-desc">Links to government and official safety organizations.</p>
+                <a href="trusted-sources.html" class="btn-resource">👉 Explore Sites</a>
+            </div>
+        </div>
+
+        <!-- Safety Footer -->
+        <div class="fade-in-up delay-3"
+            style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: #94a3b8; font-size: 0.9rem;">
+            <p><strong>🔐 Safety Note:</strong> No downloads contain harmful content. No personal data required. No paid
+                material.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="learn.html" class="btn btn-secondary"
+                    style="background: rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 8px;">Back
+                    to Learning</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>

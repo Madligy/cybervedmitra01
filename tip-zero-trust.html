@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Trust | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Monday Tip</span>
+            <h1 class="tip-title">Zero Trust Architecture</h1>
+
+            <div class="tip-body">
+                <p>Zero Trust is a security concept centered on the belief that organizations should not automatically
+                    trust anything inside or outside its perimeters and instead must verify anything and everything
+                    trying to connect to its systems before granting access.</p>
+
+                <div class="highlight-box">
+                    "Never trust, always verify — every access request must be checked as if it came from an open
+                    network."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>In the past, security was like a castle with a moat. Once you were inside the castle, you were
+                    trusted. However, if a hacker got inside, they had access to everything. Zero Trust changes this: it
+                    assumes there are always threats, even inside the walls.</p>
+
+                <h3>Real-World Example</h3>
+                <p>Think of entering a high-security building. Instead of just showing your ID at the front door and
+                    being allowed to go anywhere, you have to show your ID and use a fingerprint scanner at every single
+                    room you want to enter. That is the essence of Zero Trust.</p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Continuous Verification:</strong> Always prove who you are when accessing sensitive
+                        apps.</li>
+                    <li><strong>Least Privilege:</strong> Only give access to the specific files or rooms someone needs,
+                        nothing more.</li>
+                    <li><strong>Assume Breach:</strong> Act as if a hacker is already in the system and design your
+                        safety rules around that.</li>
+                    <li><strong>Device Health:</strong> Ensure your phone or laptop is updated and safe before
+                        connecting to important school or work accounts.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

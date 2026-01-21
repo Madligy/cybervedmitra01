@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Privacy | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Sunday Tip</span>
+            <h1 class="tip-title">Data Privacy Awareness</h1>
+
+            <div class="tip-body">
+                <p>In the digital age, your personal data is like digital currency. Companies, apps, and even malicious
+                    actors are constantly looking for ways to collect it. Data privacy is about having control over who
+                    sees your information and how they use it.</p>
+
+                <div class="highlight-box">
+                    "Think before sharing personal information online — once it's out there, it's hard to take back."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>When you share your location, birthday, school name, or photos, you are creating a digital footprint.
+                    This information can be used to track you, target you with manipulative ads, or even commit identity
+                    theft.</p>
+
+                <h3>Real-World Example</h3>
+                <p>Imagine a fun "What Disney Character are you?" quiz on social media. Many of these quizzes require
+                    access to your profile data, including your email and friends list, just to give you a simple
+                    result. By clicking 'Accept', you might be handing over your private data to an unknown developer.
+                </p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Check Privacy Settings:</strong> Regularly review settings on Instagram, Snapchat, and
+                        other apps. Set your profile to 'Private'.</li>
+                    <li><strong>Minimize Sharing:</strong> Don't share your phone number, home address, or current
+                        location in public posts.</li>
+                    <li><strong>Read App Permissions:</strong> Ask yourself: "Does this game really need access to my
+                        camera and contacts?"</li>
+                    <li><strong>Audit Your Footprint:</strong> Google yourself occasionally to see what information is
+                        public.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

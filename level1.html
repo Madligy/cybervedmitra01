@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybervedmitra | Level 1: Cyber Basics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .level-page-header {
+            padding-top: 8rem;
+            text-align: center;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-image {
+            flex: 0 0 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .list-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .quiz-container {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #d4d4d8;
+        }
+
+        .quiz-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .quiz-btn.correct {
+            background: rgba(34, 197, 94, 0.2) !important;
+            border-color: #22c55e !important;
+            color: #fff !important;
+        }
+
+        .quiz-btn.wrong {
+            background: rgba(239, 68, 68, 0.2) !important;
+            border-color: #ef4444 !important;
+            color: #fff !important;
+        }
+
+        /* Activity Card */
+        .activity-card {
+            background: linear-gradient(145deg, rgba(234, 179, 8, 0.05), rgba(234, 179, 8, 0.01));
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <a href="learn.html" class="btn-return-home" style="top: 2rem; left: 2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Learn
+    </a>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <button class="hamburger-btn" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="header-auth-wrapper">
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-text" style="color: #fff; margin-right: 15px;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Sign
+                    Up</a>
+            </div>
+            <button class="btn btn-text btn-logout-header hidden" onclick="logout()"
+                style="color: #ef4444; font-weight: 600;">Logout</button>
+        </div>
+    </header>
+
+    <!-- Menu Overlay (Standard) -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-links">
+            <li><a href="index.html" onclick="toggleMenu()"><span class="menu-label">Home</span></a></li>
+            <li><a href="about.html" onclick="toggleMenu()"><span class="menu-label">About</span></a></li>
+            <li><a href="learn.html" onclick="toggleMenu()"><span class="menu-label">Learn</span></a></li>
+            <li><a href="labs.html" onclick="toggleMenu()"><span class="menu-label">Labs</span></a></li>
+            <li><a href="resources.html" onclick="toggleMenu()"><span class="menu-label">Resources</span></a></li>
+            <li><a href="awareness.html" onclick="toggleMenu()"><span class="menu-label">Awareness</span></a></li>
+            <li><a href="contact.html" onclick="toggleMenu()"><span class="menu-label">Contact</span></a></li>
+            <li class="dashboard-menu-item" style="display: none;"><a href="dashboard.html" onclick="toggleMenu()"><span
+                        class="menu-label">Dashboard</span></a></li>
+            <li><a href="#" onclick="logout(); return false;" style="color: #ef4444;"><span
+                        class="menu-label">Logout</span></a></li>
+        </ul>
+    </div>
+
+    <main class="container level-page-header">
+        <span
+            style="color: #22c55e; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; display: block;">Level
+            1</span>
+        <h1 class="page-title fade-in-up">Cyber Basics <span class="accent-text">(Beginner)</span></h1>
+
+        <div class="fade-in-up delay-1" style="max-width: 700px; margin: 0 auto 4rem auto; text-align: center;">
+            <p style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem;">👋 Welcome, Cyber Cadet! 🛡️</p>
+            <p style="color: var(--text-secondary);">This is your first step. In this level, you’ll understand how the
+                internet works, what cybersecurity means, and how to stay safe online.</p>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #a1a1aa;">⏱️ Time needed: 15–20 minutes</div>
+        </div>
+
+        <!-- Section 1: Internet -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">🌐 1. What Is the Internet?</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>The internet is a huge network that connects computers, mobile phones, and tablets all over the
+                        world.</p>
+                    <p style="margin-top: 1rem;">When you watch YouTube, send a WhatsApp message, or play online games,
+                        you are using the internet 🌍</p>
+
+                    <div class="list-box">
+                        <strong style="color: #fff;">Think of it like a big road system:</strong>
+                        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #d4d4d8;">
+                            <li>🛣️ Roads = Internet connections</li>
+                            <li>🚗 Vehicles = Data (messages, videos, photos)</li>
+                            <li>🚦 Traffic rules = Security rules</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="images/internet.png" alt="Internet Network Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Cybersecurity -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">🔐 2. What Is Cybersecurity?</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>Cybersecurity means protecting computers, phones, and personal information from online dangers.
+                    </p>
+                    <p style="margin-top: 1rem;">It’s like a digital lock 🔒 that keeps your passwords safe, your photos
+                        private, and your accounts protected.</p>
+
+                    <div class="list-box" style="border-color: #22c55e;">
+                        <strong style="color: #fff;">Why It Matters:</strong>
+                        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #d4d4d8;">
+                            <li>🚫 Prevents accounts from being hacked</li>
+                            <li>🛡️ Stops personal data theft</li>
+                            <li>🕵️ Helps you spotting fake messages</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="images/lock.png" alt="Cybersecurity Lock Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Hackers -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">🕵️ 3. Who Are Hackers? (Good vs Bad)</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>Important to remember: <strong>Not all hackers are bad!</strong></p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                        <div
+                            style="background: rgba(34, 197, 94, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(34, 197, 94, 0.3);">
+                            <h3 style="color: #22c55e; margin-bottom: 0.5rem;">👨‍💻 Good Hackers</h3>
+                            <p style="font-size: 0.9rem;">(Ethical Hackers)</p>
+                            <ul style="font-size: 0.9rem; margin-top: 1rem; padding-left: 1rem; color: #d4d4d8;">
+                                <li>Protect systems</li>
+                                <li>Find security problems</li>
+                                <li>Help people stay safe</li>
+                                <li><strong>Like security guards 🛡️</strong></li>
+                            </ul>
+                        </div>
+
+                        <div
+                            style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                            <h3 style="color: #ef4444; margin-bottom: 0.5rem;">🦹 Bad Hackers</h3>
+                            <p style="font-size: 0.9rem;">(Cyber Criminals)</p>
+                            <ul style="font-size: 0.9rem; margin-top: 1rem; padding-left: 1rem; color: #d4d4d8;">
+                                <li>Steal passwords</li>
+                                <li>Hack accounts</li>
+                                <li>Spread viruses</li>
+                                <li><strong>Break rules & cause harm ⚠️</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="images/hackers.png" alt="Good vs Bad Hackers Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Importance -->
+        <div class="section-card fade-in-up delay-2">
+            <h2 class="section-title">🎒 4. Why Cyber Safety Is Important</h2>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>You use the internet every day for classes, games, and chatting with friends. Staying safe helps
+                        you:</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem; color: #d4d4d8; line-height: 1.8;">
+                        <li>Avoid fake messages and scams</li>
+                        <li>Protect your social media accounts</li>
+                        <li>Keep personal information safe</li>
+                        <li>Stay confident online 💪</li>
+                    </ul>
+                </div>
+                <div class="section-image">
+                    <img src="images/safety.png" alt="Student Online Safety Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-container fade-in-up delay-3">
+            <h2 style="color: #fff; margin-bottom: 0.5rem;">🧠 Quick Knowledge Check</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Test what you've learned!</p>
+
+            <!-- Q1 -->
+            <div class="quiz-question">
+                <p style="font-weight: 600; color: #fff; margin-bottom: 1rem;">Q1: What does the internet connect?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">A) Only computers</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">B) Only mobile phones</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)">C) Devices all over the world</button>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="quiz-question">
+                <p style="font-weight: 600; color: #fff; margin-bottom: 1rem;">Q2: Cybersecurity is used to:</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">A) Hack accounts</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)">B) Protect devices and data</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">C) Play games</button>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="quiz-question">
+                <p style="font-weight: 600; color: #fff; margin-bottom: 1rem;">Q3: Who are good hackers?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)">A) Those who follow rules and protect
+                        systems</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)">B) Those who steal data</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div class="activity-card fade-in-up delay-3">
+            <h2 style="color: #eab308; margin-bottom: 1rem;">🎯 Level 1 Activity: Internet Safety Spotter</h2>
+            <p style="color: #d4d4d8; margin-bottom: 1.5rem;">Look at your daily internet use today and ask yourself:
+            </p>
+            <ul style="list-style: none; padding: 0; color: #fff;">
+                <li style="margin-bottom: 0.5rem;">❓ Do I use strong passwords?</li>
+                <li style="margin-bottom: 0.5rem;">❓ Do I click unknown links?</li>
+                <li style="margin-bottom: 0.5rem;">❓ Do I share personal details online?</li>
+            </ul>
+            <p style="margin-top: 1.5rem; font-weight: 600; color: #eab308;">👉 Try to identify 1 safe habit you already
+                follow.</p>
+        </div>
+
+        <!-- Completion Footer -->
+        <div
+            style="margin-top: 4rem; margin-bottom: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
+            <h2 style="color: #fff;">🚀 Great job, Cyber Cadet! 🎉</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">You’ve completed Level 1.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="level2.html" class="btn btn-primary">👉 Start Level 2</a>
+                <a href="learn.html" class="btn" style="border: 1px solid rgba(255,255,255,0.1); color: #fff;">Back to
+                    Learn Page</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            // Reset siblings
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-btn');
+            buttons.forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                b.style.pointerEvents = 'none'; // Disable clicking other options
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.innerHTML += ' ✅';
+            } else {
+                btn.classList.add('wrong');
+                btn.innerHTML += ' ❌';
+                // Highlight correct answer if wrong
+                // Find the correct button (this logic assumes we passed true to the correct one)
+            }
+        }
+
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>

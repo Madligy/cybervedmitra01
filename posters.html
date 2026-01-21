@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posters Pack | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .background-glow,
+            .nav-pill,
+            .download-btn-container {
+                display: none;
+            }
+
+            .posters-container {
+                color: #000 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            .poster-card {
+                background: #fff !important;
+                color: #000 !important;
+                border: 2px solid #000 !important;
+                page-break-after: always;
+                margin-bottom: 2rem !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            p,
+            li {
+                color: #000 !important;
+            }
+        }
+
+        .posters-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .poster-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .poster-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--poster-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(var(--poster-color-rgb), 0.2);
+        }
+
+        .poster-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .poster-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .poster-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--poster-color);
+        }
+
+        .poster-content {
+            flex-grow: 1;
+        }
+
+        .poster-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .poster-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .poster-list li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+            color: var(--poster-color);
+        }
+
+        .poster-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Poster Variants */
+        .poster-red {
+            --poster-color: #ef4444;
+            --poster-color-rgb: 239, 68, 68;
+        }
+
+        .poster-blue {
+            --poster-color: #3b82f6;
+            --poster-color-rgb: 59, 130, 246;
+        }
+
+        .poster-orange {
+            --poster-color: #f97316;
+            --poster-color-rgb: 249, 115, 22;
+        }
+
+        .poster-green {
+            --poster-color: #22c55e;
+            --poster-color-rgb: 34, 197, 94;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="resources.html" class="logo">← Back to Resources</a>
+            <a href="index.html" class="btn btn-text"
+                style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">Home</a>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="color: #fff; font-size: 2.5rem; margin-bottom: 0.5rem;">📢 Posters Pack</h1>
+            <p style="color: var(--accent); font-weight: 600;">Cyber Awareness for Students (8–10th Grade)</p>
+        </div>
+
+        <div id="pdf-content" class="posters-container">
+
+            <div class="poster-grid">
+
+                <!-- Poster 1 -->
+                <div class="poster-card poster-red">
+                    <div class="poster-header">
+                        <span class="poster-icon">🛑</span>
+                        <h2 class="poster-title">THINK BEFORE YOU CLICK!</h2>
+                    </div>
+                    <div class="poster-content">
+                        <p style="color: #fff; text-align: center; font-weight: 600; margin-bottom: 1.5rem;">Not every
+                            link is safe</p>
+                        <ul class="poster-list">
+                            <li>Fake messages create fear or excitement</li>
+                            <li>Free rewards can be scams</li>
+                        </ul>
+                        <div
+                            style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 12px; margin-top: 1.5rem;">
+                            <h4 style="color: #ef4444; margin-bottom: 0.5rem;">🔍 STOP & CHECK:</h4>
+                            <ul class="poster-list" style="margin: 0;">
+                                <li>Who sent the message?</li>
+                                <li>Is the link suspicious?</li>
+                                <li>Asking for passwords or OTP?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="poster-footer">
+                        Smart students think before they click 🧠
+                    </div>
+                </div>
+
+                <!-- Poster 2 -->
+                <div class="poster-card poster-blue">
+                    <div class="poster-header">
+                        <span class="poster-icon">🔐</span>
+                        <h2 class="poster-title">STRONG PROTECTION</h2>
+                    </div>
+                    <div class="poster-content">
+                        <h4 style="color: #3b82f6; margin-bottom: 1rem;">STRONG PASSWORD RULES:</h4>
+                        <ul class="poster-list">
+                            <li>At least 8 characters</li>
+                            <li>Use A–Z, a–z, 0–9</li>
+                            <li>Add special symbols (! @ #)</li>
+                        </ul>
+                        <div
+                            style="background: rgba(239, 68, 68, 0.05); padding: 1rem; border-radius: 12px; margin-top: 1rem;">
+                            <h4 style="color: #ef4444; margin-bottom: 0.5rem;">❌ AVOID:</h4>
+                            <p style="font-size: 0.9rem; color: #d4d4d8;">Your name • Birth year • "123456" • "password"
+                            </p>
+                        </div>
+                    </div>
+                    <div class="poster-footer">
+                        Your password is your digital key 🔑<br>
+                        Keep it strong. Keep it secret.
+                    </div>
+                </div>
+
+                <!-- Poster 3 -->
+                <div class="poster-card poster-orange">
+                    <div class="poster-header">
+                        <span class="poster-icon">📶</span>
+                        <h2 class="poster-title">PUBLIC WI-FI WARNING</h2>
+                    </div>
+                    <div class="poster-content">
+                        <p style="color: #ef4444; text-align: center; font-weight: 700; margin-bottom: 1.5rem;">⚠️ Free
+                            Wi-Fi is not always safe</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <h4 style="color: #22c55e; font-size: 0.9rem; margin-bottom: 0.5rem;">✅ DO:</h4>
+                                <ul class="poster-list" style="margin: 0; font-size: 0.85rem;">
+                                    <li>Use for browsing only</li>
+                                    <li>Turn off when not needed</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="color: #ef4444; font-size: 0.9rem; margin-bottom: 0.5rem;">❌ DON'T:</h4>
+                                <ul class="poster-list" style="margin: 0; font-size: 0.85rem; padding-left: 1.5rem;">
+                                    <li style="page-break-inside: avoid;">Log into accounts</li>
+                                    <li style="page-break-inside: avoid;">Share personal details</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poster-footer">
+                        Free Wi-Fi can cost your data!
+                    </div>
+                </div>
+
+                <!-- Poster 4 -->
+                <div class="poster-card poster-green">
+                    <div class="poster-header">
+                        <span class="poster-icon">🛡️</span>
+                        <h2 class="poster-title">ONLINE SAFETY RULES</h2>
+                    </div>
+                    <div class="poster-content">
+                        <ul class="poster-list">
+                            <li>Keep accounts private</li>
+                            <li>Don’t talk to strangers online</li>
+                            <li>Report suspicious activity</li>
+                            <li>Ask adults if unsure</li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 2rem; opacity: 0.8;">
+                            <img src="https://img.icons8.com/isometric/100/security-shield.png" style="width: 80px;">
+                        </div>
+                    </div>
+                    <div class="poster-footer">
+                        Be smart. Be safe. Be cyber-aware 🛡️
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="download-btn-container" style="text-align: center; margin: 3rem 0;">
+            <button onclick="downloadPDF()" class="btn btn-primary" id="downloadBtn"
+                style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 100px;">
+                📥 Download Posters (PDF)
+            </button>
+            <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
+                Great for classroom walls or study areas!
+            </p>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('pdf-content');
+            const btn = document.getElementById('downloadBtn');
+            const originalText = btn.innerHTML;
+
+            btn.innerText = "⏳ Preparing Visuals...";
+            btn.style.opacity = "0.7";
+
+            const opt = {
+                margin: [0.2, 0.2], // Smaller margin for posters
+                filename: 'Cyber_Awareness_Posters.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#050505' },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.style.opacity = "1";
+            });
+        }
+    </script>
+</body>
+
+</html>

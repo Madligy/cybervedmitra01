@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4: Hacker or Helper? | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <a href="labs.html" class="btn btn-text" style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">✕
+                Exit Lab</a>
+        </div>
+    </header>
+
+    <main class="container lab-container">
+
+        <!-- Progress -->
+        <div
+            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <span>Lab 4: Hacker or Helper?</span>
+            <span id="progressText">Scenario 1/4</span>
+        </div>
+        <div class="lab-progress-bar">
+            <div class="lab-progress-fill" id="progressBar" style="width: 25%;"></div>
+        </div>
+
+        <!-- SCENARIO 1 -->
+        <div class="sim-card active" id="scenario1">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">🧠 Scenario 1</h2>
+
+            <div class="message-box"
+                style="text-align: center; border-left: none; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🐞</div>
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">Finding a Bug</h3>
+                <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6;">
+                    A person finds a security problem in a school website and reports it to the admin.
+                </p>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff; text-align: center;">Is this person
+                    a...</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(1, 'helper')">🟢 Helper
+                        (Good)</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(1, 'hacker')">🔴 Hacker
+                        (Bad)</button>
+                </div>
+
+                <div class="feedback-box" id="feedback1">
+                    <h3 id="feedbackTitle1" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText1" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Helps fix the problem</li>
+                        <li>Follows rules</li>
+                        <li>Protects users</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="nextScenario(2)">Next Scenario 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENARIO 2 -->
+        <div class="sim-card" id="scenario2">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">🧠 Scenario 2</h2>
+
+            <div class="message-box"
+                style="text-align: center; border-left: none; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔓</div>
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">Account Takeover</h3>
+                <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6;">
+                    A person breaks into someone’s social media account and changes the password.
+                </p>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff; text-align: center;">Is this person
+                    a...</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(2, 'helper')">🟢 Helper
+                        (Good)</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(2, 'hacker')">🔴 Hacker
+                        (Bad)</button>
+                </div>
+
+                <div class="feedback-box" id="feedback2">
+                    <h3 id="feedbackTitle2" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText2" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Steals access</li>
+                        <li>Causes harm</li>
+                        <li>Illegal action</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="nextScenario(3)">Next Scenario 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENARIO 3 -->
+        <div class="sim-card" id="scenario3">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">🧠 Scenario 3</h2>
+
+            <div class="message-box"
+                style="text-align: center; border-left: none; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">Security Testing</h3>
+                <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6;">
+                    A cybersecurity expert tests an app (with permission) to find security issues.
+                </p>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff; text-align: center;">Is this person
+                    a...</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(3, 'helper')">🟢 Helper
+                        (Good)</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(3, 'hacker')">🔴 Hacker
+                        (Bad)</button>
+                </div>
+
+                <div class="feedback-box" id="feedback3">
+                    <h3 id="feedbackTitle3" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText3" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Has permission</li>
+                        <li>Improves security</li>
+                        <li>Ethical behavior</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="nextScenario(4)">Next Scenario 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENARIO 4 -->
+        <div class="sim-card" id="scenario4">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">🧠 Scenario 4</h2>
+
+            <div class="message-box"
+                style="text-align: center; border-left: none; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎣</div>
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">Fake Links</h3>
+                <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.6;">
+                    A person creates fake links to steal passwords.
+                </p>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff; text-align: center;">Is this person
+                    a...</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(4, 'helper')">🟢 Helper
+                        (Good)</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(4, 'hacker')">🔴 Hacker
+                        (Bad)</button>
+                </div>
+
+                <div class="feedback-box" id="feedback4">
+                    <h3 id="feedbackTitle4" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText4" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Scams people</li>
+                        <li>Steals data</li>
+                        <li>Unsafe activity</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="showResults()">Finish Lab 🏆</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Tips -->
+        <div class="sim-card tips-box" id="tipsSection">
+            <h2 style="color: #eab308; font-size: 1.4rem; margin-bottom: 1rem;">🧠 Important Message:</h2>
+            <p style="color: #fff; font-size: 1.2rem; text-align: center; font-weight: 600;">
+                Cybersecurity is about <u>defending</u> and <u>protecting</u>,<br>
+                not breaking rules or harming others.
+            </p>
+        </div>
+
+        <!-- Lab Result Screen -->
+        <div class="sim-card result-screen" id="resultScreen">
+            <div style="font-size: 5rem; margin-bottom: 1rem;">🎉</div>
+            <h1 style="margin-bottom: 1rem;">Well Done!</h1>
+
+            <p style="color: var(--text-secondary);">Your Result:</p>
+            <div class="result-score" id="finalScore">4 / 4</div>
+            <div style="color: #22c55e; font-size: 1.1rem; margin-bottom: 2rem;">⭐ +10 Cyber Points Earned</div>
+
+            <div
+                style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; text-align: left; margin-bottom: 2.5rem;">
+                <h3 style="color: #fff; margin-bottom: 1rem;">You Learned:</h3>
+                <ul style="color: #d4d4d8; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">✔️ Difference between good and bad hackers</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Why ethical hacking is important</li>
+                    <li>✔️ Responsible cyber behavior</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                <a href="labs.html" class="btn btn-primary">👉 Go Back to Labs Page</a>
+                <a href="lab5.html" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Final
+                    Challenge: Lab 5 👉</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let score = 0;
+        const correctAnswers = {
+            1: 'helper',
+            2: 'hacker',
+            3: 'helper',
+            4: 'hacker'
+        };
+
+        function checkLabAnswer(scenarioId, answer) {
+            const isCorrect = correctAnswers[scenarioId] === answer;
+            const feedbackBox = document.getElementById(`feedback${scenarioId}`);
+            const title = document.getElementById(`feedbackTitle1`.replace('1', scenarioId));
+            const text = document.getElementById(`feedbackText1`.replace('1', scenarioId));
+            const btns = document.querySelectorAll(`#scenario${scenarioId} .btn-decision`);
+
+            // Disable buttons
+            btns.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                if (btn.innerText.toLowerCase().includes(answer)) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.style.opacity = '0.5';
+                }
+            });
+
+            feedbackBox.style.display = 'block';
+
+            if (isCorrect) {
+                score++;
+                feedbackBox.classList.add('correct');
+                title.innerText = "✅ Correct!";
+                title.style.color = "#22c55e";
+                text.innerText = "Exactly right!";
+            } else {
+                feedbackBox.classList.add('wrong');
+                title.innerText = "❌ Incorrect.";
+                title.style.color = "#ef4444";
+                text.innerText = "Think about the intent.";
+            }
+        }
+
+        function nextScenario(nextId) {
+            // Update Progress
+            const total = 4;
+            document.getElementById('progressText').innerText = `Scenario ${nextId}/${total}`;
+            document.getElementById('progressBar').style.width = `${(nextId / total) * 100}%`;
+
+            // Hide current, Show next
+            document.getElementById(`scenario${nextId - 1}`).classList.remove('active');
+            document.getElementById(`scenario${nextId}`).classList.add('active');
+        }
+
+        function showResults() {
+            document.getElementById('scenario4').classList.remove('active');
+            document.getElementById('tipsSection').style.display = 'none';
+            document.getElementById('resultScreen').classList.add('active');
+            document.getElementById('finalScore').innerText = `✅ Based on answers: ${score} / 4`;
+
+            document.querySelector('.lab-progress-bar').style.display = 'none';
+            document.getElementById('progressText').innerText = "Lab Complete";
+        }
+    </script>
+</body>
+
+</html>

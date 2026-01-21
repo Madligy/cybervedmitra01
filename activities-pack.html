@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities Pack | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .background-glow,
+            .nav-pill,
+            .download-btn-container {
+                display: none;
+            }
+
+            .activity-container {
+                color: #000 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            p,
+            li,
+            th,
+            td {
+                color: #000 !important;
+                border-color: #ccc !important;
+            }
+
+            .checkbox-cell,
+            .check-mark {
+                color: #000 !important;
+            }
+        }
+
+        .activity-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .sheet-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .sheet-header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            color: #d4d4d8;
+        }
+
+        .activity-table th,
+        .activity-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .activity-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .checkbox-cell {
+            text-align: center;
+            width: 80px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .check-mark {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .message-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .habit-grid {
+            overflow-x: auto;
+        }
+
+        .habit-table th {
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="resources.html" class="logo">← Back to Resources</a>
+            <a href="index.html" class="btn btn-text"
+                style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">Home</a>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div id="pdf-content" class="activity-container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span
+                    style="color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Student
+                    Workbook</span>
+                <h1 style="color: #fff; margin-top: 0.5rem;">🧩 Activities Pack</h1>
+                <p style="color: #94a3b8;">Practice What You’ve Learned</p>
+            </div>
+
+            <!-- SHEET 1 -->
+            <div class="sheet-section">
+                <div class="sheet-header">
+                    <h2 style="color: #fff; font-size: 1.4rem;">📄 ACTIVITY SHEET 1: SPOT THE PHISHING</h2>
+                    <span
+                        style="background: #3b82f6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">🎯
+                        Goal: Identifying Fake Messages</span>
+                </div>
+
+                <p style="color: #cbd5e1; margin-bottom: 1.5rem;"><strong>Instructions:</strong> Read each message
+                    carefully. Tick whether it is Safe or Phishing (Fake).</p>
+
+                <div class="message-item">
+                    <p style="color: #fff; font-family: monospace; font-size: 0.9rem;">📩 Message 1: "⚠️ Your account
+                        will be blocked today. Click the link to verify: http://secure-login-alert.net"</p>
+                    <div style="margin-top: 0.5rem; display: flex; gap: 2rem;">
+                        <span style="color: #94a3b8;">☐ Safe</span>
+                        <span class="check-mark">☑ Phishing</span>
+                    </div>
+                </div>
+
+                <div class="message-item">
+                    <p style="color: #fff; font-family: monospace; font-size: 0.9rem;">📩 Message 2: "Hi! Tomorrow's
+                        homework is shared in the class group."</p>
+                    <div style="margin-top: 0.5rem; display: flex; gap: 2rem;">
+                        <span class="check-mark">☑ Safe</span>
+                        <span style="color: #94a3b8;">☐ Phishing</span>
+                    </div>
+                </div>
+
+                <div class="message-item" style="border-left-color: #eab308;">
+                    <p style="color: #fff; font-family: monospace; font-size: 0.9rem;">📩 Message 3: "🎮
+                        Congratulations! You won free game coins. Login now to claim."</p>
+                    <div style="margin-top: 0.5rem; display: flex; gap: 2rem;">
+                        <span style="color: #94a3b8;">☐ Safe</span>
+                        <span class="check-mark">☑ Phishing</span>
+                    </div>
+                </div>
+
+                <div class="message-item">
+                    <p style="color: #fff; font-family: monospace; font-size: 0.9rem;">📩 Message 4: "School notice:
+                        Online class starts at 9 AM tomorrow."</p>
+                    <div style="margin-top: 0.5rem; display: flex; gap: 2rem;">
+                        <span class="check-mark">☑ Safe</span>
+                        <span style="color: #94a3b8;">☐ Phishing</span>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.2); margin-top: 1.5rem;">
+                    <h4 style="color: #ef4444; margin-bottom: 0.5rem;">🚨 Phishing Clues:</h4>
+                    <span style="color: #d4d4d8; font-size: 0.9rem;">Urgent threats • Free rewards • Unknown senders •
+                        Asking for passwords</span>
+                </div>
+            </div>
+
+            <!-- SHEET 2 -->
+            <div class="sheet-section">
+                <div class="sheet-header">
+                    <h2 style="color: #fff; font-size: 1.4rem;">📄 ACTIVITY SHEET 2: PASSWORD CHECKER</h2>
+                    <span
+                        style="background: #22c55e; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">🎯
+                        Goal: Strong Password Awareness</span>
+                </div>
+
+                <p style="color: #cbd5e1; margin-bottom: 1.5rem;"><strong>Instructions:</strong> Look at each password
+                    and mark its strength.</p>
+
+                <table class="activity-table">
+                    <thead>
+                        <tr>
+                            <th>Password</th>
+                            <th style="text-align: center;">Weak</th>
+                            <th style="text-align: center;">Medium</th>
+                            <th style="text-align: center;">Strong</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123456</td>
+                            <td class="checkbox-cell check-mark">✔️</td>
+                            <td class="checkbox-cell">☐</td>
+                            <td class="checkbox-cell">☐</td>
+                        </tr>
+                        <tr>
+                            <td>student123</td>
+                            <td class="checkbox-cell">☐</td>
+                            <td class="checkbox-cell check-mark">✔️</td>
+                            <td class="checkbox-cell">☐</td>
+                        </tr>
+                        <tr>
+                            <td>Safe@2024</td>
+                            <td class="checkbox-cell">☐</td>
+                            <td class="checkbox-cell">☐</td>
+                            <td class="checkbox-cell check-mark">✔️</td>
+                        </tr>
+                        <tr>
+                            <td>myname2009</td>
+                            <td class="checkbox-cell check-mark">✔️</td>
+                            <td class="checkbox-cell">☐</td>
+                            <td class="checkbox-cell">☐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div
+                    style="background: rgba(34, 197, 94, 0.1); padding: 1rem; border-radius: 12px; border: 1px solid rgba(34, 197, 94, 0.2);">
+                    <h4 style="color: #22c55e; margin-bottom: 0.5rem;">🔐 Strong Rules:</h4>
+                    <span style="color: #d4d4d8; font-size: 0.9rem;">8+ chars • ABC + abc • 123 • Special Symbols
+                        (@#$!)</span>
+                </div>
+
+                <div
+                    style="margin-top: 1.5rem; padding: 1rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px;">
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 0.5rem;">✍️ Practice: Create a Sample
+                        Strong Password</p>
+                    <div style="color: #fff; font-family: monospace; font-size: 1.2rem;">_______________________</div>
+                </div>
+            </div>
+
+            <!-- SHEET 3 -->
+            <div class="sheet-section" style="margin-bottom: 0;">
+                <div class="sheet-header">
+                    <h2 style="color: #fff; font-size: 1.4rem;">📄 ACTIVITY SHEET 3: CYBER HABITS TRACKER</h2>
+                    <span
+                        style="background: #a855f7; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">🎯
+                        Goal: Daily Safety Habits</span>
+                </div>
+
+                <div class="habit-grid">
+                    <table class="activity-table habit-table">
+                        <thead>
+                            <tr>
+                                <th>Habit</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-size: 0.85rem;">Used strong passwords</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 0.85rem;">Did not click unknown links</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 0.85rem;">Logged out on shared device</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                                <td class="checkbox-cell">☐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+                        <p style="color: #a855f7; font-size: 0.9rem; font-weight: 600;">🌟 Weekly Reflection</p>
+                        <p style="color: #64748b; font-size: 0.8rem;">My best habit this week was...</p>
+                    </div>
+                    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+                        <p style="color: #3b82f6; font-size: 0.9rem; font-weight: 600;">🏆 Goal for Next Week</p>
+                        <p style="color: #64748b; font-size: 0.8rem;">I want to improve...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; color: #94a3b8; font-size: 0.8rem;">
+                © 2024 Cybervedmitra - Education Use Only
+            </div>
+        </div>
+
+        <div class="download-btn-container" style="text-align: center; max-width: 900px; margin: 2rem auto;">
+            <button onclick="downloadPDF()" class="btn btn-primary" id="downloadBtn"
+                style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 12px; box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);">
+                📥 Download(PDF)
+            </button>
+            <p style="color: #64748b; font-size: 0.8rem; margin-top: 0.8rem;">Print this pack to practice offline!</p>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('pdf-content');
+            const btn = document.getElementById('downloadBtn');
+
+            const originalText = btn.innerHTML;
+            btn.innerText = "⏳ Preparing Activity Pack...";
+            btn.style.opacity = "0.7";
+
+            const opt = {
+                margin: [0.5, 0.5],
+                filename: 'Cyber_Activities_Pack.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#111111' },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.style.opacity = "1";
+            });
+        }
+    </script>
+</body>
+
+</html>

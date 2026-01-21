@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Cyber Safety Guide | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* Print-specific overrides to ensure PDF looks good */
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .background-glow {
+                display: none;
+            }
+
+            .nav-pill,
+            .download-btn-container {
+                display: none;
+            }
+
+            .guide-container {
+                color: #000 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            p,
+            li {
+                color: #000 !important;
+            }
+        }
+
+        .guide-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .guide-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .guide-section:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.5rem;
+            color: #d4d4d8;
+        }
+
+        .highlight-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="resources.html" class="logo">← Back to Resources</a>
+            <a href="index.html" class="btn btn-text"
+                style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">Home</a>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div id="pdf-content" class="guide-container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="color: #fff; margin-bottom: 0.5rem;">Beginner Cyber Safety Guide</h1>
+                <p style="color: var(--accent); font-weight: 600;">For 8–10th Grade Students</p>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="guide-section">
+                <h2 style="color: #3b82f6; margin-bottom: 1rem;">🌐 What Is Cyber Safety?</h2>
+                <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                    Cyber safety means staying safe while using the internet. Just like we follow rules on the road, we
+                    must follow safety rules online.
+                </p>
+                <p style="color: #fff; font-weight: 600; margin-bottom: 0.5rem;">Students use the internet for:</p>
+                <ul class="guide-list" style="padding-left: 1.2rem;">
+                    <li>Online classes</li>
+                    <li>Games</li>
+                    <li>Social media</li>
+                    <li>Chatting with friends</li>
+                </ul>
+                <p style="color: #94a3b8; font-style: italic; margin-top: 1rem;">
+                    Cyber safety helps protect your accounts, data, and privacy.
+                </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="guide-section">
+                <h2 style="color: #ef4444; margin-bottom: 1rem;">🔐 Why Cyber Safety Is Important</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">⚠️ Risks if careless:</h3>
+                        <ul class="guide-list" style="padding-left: 1.2rem;">
+                            <li>Accounts can get hacked</li>
+                            <li>Personal photos misused</li>
+                            <li>Scams can trick students</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem;">🛡️ Benefits of safety:</h3>
+                        <ul class="guide-list" style="padding-left: 1.2rem;">
+                            <li>Use internet confidently</li>
+                            <li>Avoid online trouble</li>
+                            <li>Stay protected every day</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="guide-section">
+                <h2 style="color: #eab308; margin-bottom: 1rem;">🔑 Basic Cyber Safety Rules</h2>
+                <ul class="guide-list" style="padding-left: 1.2rem;">
+                    <li><strong>Never share passwords</strong> with anyone (except parents).</li>
+                    <li><strong>Think before clicking</strong> on links from strangers.</li>
+                    <li><strong>Don’t talk to strangers</strong> online or meet them.</li>
+                    <li><strong>Log out</strong> when using shared computers or devices.</li>
+                    <li><strong>Keep apps updated</strong> to the latest secure version.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="highlight-box">
+                <h2 style="color: #22c55e; margin-bottom: 0.5rem; font-size: 1.3rem;">🧠 Smart Student Tip</h2>
+                <p style="color: #fff; font-size: 1.1rem;">
+                    If something online feels <span style="color: #ef4444;">too good</span> (free money/prize) or <span
+                        style="color: #eab308;">too scary</span> (threats), stop and think. Talk to a trusted adult
+                    immediately.
+                </p>
+            </div>
+
+            <div
+                style="margin-top: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                <h3 style="color: #fff;">✅ Summary</h3>
+                <p style="color: #cbd5e1;">Cyber safety is a life skill. Learning it early makes you smart, confident,
+                    and safe online.</p>
+                <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.9rem;">
+                    © 2024 Cybervedmitra - Education Use Only
+                </div>
+            </div>
+
+        </div>
+
+        <div class="download-btn-container" style="text-align: center; max-width: 800px; margin: 2rem auto;">
+            <button onclick="downloadPDF()" class="btn btn-primary" id="downloadBtn"
+                style="padding: 1rem 2rem; font-size: 1.1rem;">
+                📥 Download(PDF)
+            </button>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('pdf-content');
+            const btn = document.getElementById('downloadBtn');
+
+            // Visual feedback
+            const originalText = btn.innerText;
+            btn.innerText = "⏳ Generating PDF...";
+            btn.style.opacity = "0.7";
+
+            const opt = {
+                margin: [0.5, 0.5],
+                filename: 'Beginner_Cyber_Safety_Guide.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#111111' }, // Dark theme background for PDF
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+            });
+        }
+    </script>
+</body>
+
+</html>

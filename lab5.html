@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5: Cyber Safety Challenge | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <a href="labs.html" class="btn btn-text" style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">✕
+                Exit Lab</a>
+        </div>
+    </header>
+
+    <main class="container lab-container">
+
+        <!-- Progress -->
+        <div
+            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <span>Lab 5: Final Challenge</span>
+            <span id="progressText">Challenge 1/4</span>
+        </div>
+        <div class="lab-progress-bar">
+            <div class="lab-progress-fill" id="progressBar" style="width: 25%;"></div>
+        </div>
+
+        <!-- CHALLENGE 1 -->
+        <div class="sim-card active" id="scenario1">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">❓ Challenge 1</h2>
+
+            <div class="message-box" style="text-align: center;">
+                <p style="color: #fff; font-size: 1.3rem; margin-bottom: 1rem;">
+                    You receive a message saying:
+                </p>
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-style: italic;">
+                    "Your game account is selected for a free reward. Click now!"
+                </div>
+                <p style="color: #cbd5e1;">What should you do?</p>
+            </div>
+
+            <div class="question-section">
+                <div class="decision-controls">
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(1, 'click')">Click
+                        immediately</button>
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(1, 'ignore')">Ignore and delete
+                        ✅</button>
+                </div>
+
+                <div class="feedback-box" id="feedback1">
+                    <h3 id="feedbackTitle1" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText1" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <button class="btn btn-primary" onclick="nextScenario(2)">Next Challenge 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHALLENGE 2 -->
+        <div class="sim-card" id="scenario2">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">❓ Challenge 2</h2>
+
+            <div class="message-box" style="text-align: center;">
+                <p style="color: #fff; font-size: 1.3rem; margin-bottom: 1rem;">
+                    Which password is the strongest?
+                </p>
+            </div>
+
+            <div class="question-section">
+                <div class="decision-controls">
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(2, 'weak')">student123</button>
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(2, 'strong')">Cyb3r@Safe9 ✅</button>
+                </div>
+
+                <div class="feedback-box" id="feedback2">
+                    <h3 id="feedbackTitle2" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText2" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <button class="btn btn-primary" onclick="nextScenario(3)">Next Challenge 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHALLENGE 3 -->
+        <div class="sim-card" id="scenario3">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">❓ Challenge 3</h2>
+
+            <div class="message-box" style="text-align: center;">
+                <p style="color: #fff; font-size: 1.3rem; margin-bottom: 1rem;">
+                    You see free Wi-Fi at a mall. What is the safest action?
+                </p>
+            </div>
+
+            <div class="question-section">
+                <div class="decision-controls">
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(3, 'unsafe')">Log into social
+                        media</button>
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(3, 'safe')">Use only for browsing
+                        ✅</button>
+                </div>
+
+                <div class="feedback-box" id="feedback3">
+                    <h3 id="feedbackTitle3" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText3" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <button class="btn btn-primary" onclick="nextScenario(4)">Next Challenge 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHALLENGE 4 -->
+        <div class="sim-card" id="scenario4">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">❓ Challenge 4</h2>
+
+            <div class="message-box" style="text-align: center;">
+                <p style="color: #fff; font-size: 1.3rem; margin-bottom: 1rem;">
+                    Who should you share your password with?
+                </p>
+            </div>
+
+            <div class="question-section">
+                <div class="decision-controls">
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(4, 'friends')">Friends</button>
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(4, 'noone')">No one ✅</button>
+                </div>
+
+                <div class="feedback-box" id="feedback4">
+                    <h3 id="feedbackTitle4" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText4" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <button class="btn btn-primary" onclick="showResults()">Finish Challenge 🏆</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lab Result Screen -->
+        <div class="sim-card result-screen" id="resultScreen">
+            <div style="font-size: 5rem; margin-bottom: 1rem;">🎉</div>
+            <h1 style="margin-bottom: 1rem;">You Did It!</h1>
+
+            <p style="color: var(--text-secondary);">Challenge Completed Successfully!</p>
+            <div style="color: #22c55e; font-size: 1.1rem; margin-bottom: 1rem;">⭐ Cyber Points: +20</div>
+
+            <div
+                style="background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(0,0,0,0)); border: 1px solid #eab308; border-radius: 16px; padding: 2rem; margin-bottom: 2rem; display: inline-block;">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏅</div>
+                <div style="font-size: 1.5rem; font-weight: 700; color: #fff;">Cyber Smart Student</div>
+                <div style="font-size: 0.9rem; color: #facc15;">Badge Earned</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                <a href="dashboard.html" class="btn btn-primary">👉 Go to Dashboard</a>
+                <a href="labs.html" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Try Labs
+                    Again</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let score = 0;
+        const correctAnswers = {
+            1: 'ignore',
+            2: 'strong',
+            3: 'safe',
+            4: 'noone'
+        };
+
+        function checkLabAnswer(scenarioId, answer) {
+            const isCorrect = correctAnswers[scenarioId] === answer;
+            const feedbackBox = document.getElementById(`feedback${scenarioId}`);
+            const title = document.getElementById(`feedbackTitle1`.replace('1', scenarioId));
+            const text = document.getElementById(`feedbackText1`.replace('1', scenarioId));
+            const btns = document.querySelectorAll(`#scenario${scenarioId} .btn-decision`);
+
+            // Disable buttons
+            btns.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                if (btn.innerText.toLowerCase().includes(answer) || (answer === 'strong' && btn.innerText.includes('Safe')) || (answer === 'safe' && btn.innerText.includes('Use'))) {
+                    // Simple heuristic for button matching if innerText varies, but classes are reliable
+                    btn.classList.add('selected');
+                } else {
+                    btn.classList.add('selected'); // Just highlight what they clicked
+                }
+                btn.style.opacity = '0.5';
+                if (btn.onclick.toString().includes(`'${answer}'`)) {
+                    btn.style.opacity = '1';
+                    btn.classList.add('selected');
+                }
+            });
+
+            feedbackBox.style.display = 'block';
+
+            if (isCorrect) {
+                score++;
+                feedbackBox.classList.add('correct');
+                title.innerText = "✅ Correct!";
+                title.style.color = "#22c55e";
+                text.innerText = "That is the safest choice.";
+            } else {
+                feedbackBox.classList.add('wrong');
+                title.innerText = "❌ Incorrect.";
+                title.style.color = "#ef4444";
+                text.innerText = "That could be risky.";
+            }
+        }
+
+        function nextScenario(nextId) {
+            // Update Progress
+            const total = 4;
+            document.getElementById('progressText').innerText = `Challenge ${nextId}/${total}`;
+            document.getElementById('progressBar').style.width = `${(nextId / total) * 100}%`;
+
+            // Hide current, Show next
+            document.getElementById(`scenario${nextId - 1}`).classList.remove('active');
+            document.getElementById(`scenario${nextId}`).classList.add('active');
+        }
+
+        function showResults() {
+            document.getElementById('scenario4').classList.remove('active');
+            document.getElementById('resultScreen').classList.add('active');
+
+            document.querySelector('.lab-progress-bar').style.display = 'none';
+            document.getElementById('progressText').innerText = "Challenge Complete";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Wi-Fi Safety | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Thursday Tip</span>
+            <h1 class="tip-title">Public Wi-Fi Safety</h1>
+
+            <div class="tip-body">
+                <p>Public Wi-Fi in cafes, airports, and malls is convenient, but it's often insecure. Anyone else on the
+                    same network could potentially 'sniff' or see the data you are sending and receiving if it's not
+                    encrypted.</p>
+
+                <div class="highlight-box">
+                    "Free Wi-Fi can expose your data. Avoid logging into sensitive accounts on open networks."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>Hackers can set up fake Wi-Fi hotspots with names like "Free Mall Wi-Fi." If you connect to them,
+                    they can see exactly what you do online, including the passwords you type or the messages you send.
+                </p>
+
+                <h3>Real-World Example</h3>
+                <p>Imagine you're at the airport and connect to "Airport_Free_Wifi." You decide to check your bank
+                    account or log into your school portal. A person sitting three seats away could be using a simple
+                    tool to intercept that connection and see your login details in real-time.</p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Avoid Sensitive Tasks:</strong> Never log into social media, banks, or email on public
+                        Wi-Fi. Use it only for general browsing (like reading news).</li>
+                    <li><strong>Use Your Mobile Data:</strong> If you need to log in to something, turn off Wi-Fi and
+                        use your phone's 4G/5G instead. It's much safer.</li>
+                    <li><strong>Forget the Network:</strong> Once you're done, tell your device to "Forget this network"
+                        so it doesn't reconnect automatically later.</li>
+                    <li><strong>Don't Be Lured:</strong> If you see two networks with similar names and one doesn't
+                        require a password, be very suspicious.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

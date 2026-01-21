@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Wednesday Tip</span>
+            <h1 class="tip-title">Phishing Awareness</h1>
+
+            <div class="tip-body">
+                <p>Phishing is a type of cyber attack where hackers pretend to be someone you trust — like your school,
+                    a bank, or a popular brand like Amazon — to trick you into giving away your passwords or clicking on
+                    malicious links.</p>
+
+                <div class="highlight-box">
+                    "Scammers use urgency to trick users into clicking. Stop, look at the sender, and think."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>Phishing is one of the most common ways people get hacked. It's not about tech skill; it's about
+                    tricking your brain into making a mistake because you're rushed or scared.</p>
+
+                <h3>Real-World Example</h3>
+                <p>You receive an email that looks exactly like Instagram, saying: "Unusual login detected! Click here
+                    to secure your account immediately or it will be deleted in 1 hour." The urgency makes you want to
+                    click fast, but the link actually goes to a fake login page that steals your password.</p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Check the Sender:</strong> Look closely at the email address. Is it
+                        "support@instagram.com" or "support@insta-secure-login.net"?</li>
+                    <li><strong>Go to the Source:</strong> Never click links in suspicious emails. Instead, go to the
+                        official website or app yourself.</li>
+                    <li><strong>Beware of Urgency:</strong> If an email says you must act "right now" or "within 5
+                        minutes," it's probably a scam.</li>
+                    <li><strong>Hover Before Clicking:</strong> Hover your mouse over a link to see where it actually
+                        leads before you click it.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

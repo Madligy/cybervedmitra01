@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybervedmitra | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <a href="index.html" class="btn-return-home" style="top: 2rem; left: 2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Return to Home
+    </a>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <button class="hamburger-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Overlay with Logout -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-links">
+            <li>
+                <a href="index.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="menu-label">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="about.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="menu-label">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="learn.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span class="menu-label">Learn</span>
+                </a>
+            </li>
+            <li>
+                <a href="labs.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <span class="menu-label">Labs</span>
+                </a>
+            </li>
+            <li>
+                <a href="resources.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span class="menu-label">Resources</span>
+                </a>
+            </li>
+            <li>
+                <a href="awareness.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3" />
+                    </svg>
+                    <span class="menu-label">Awareness</span>
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span class="menu-label">Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="logout(); return false;" style="color: #ef4444;">
+                    <svg class="menu-icon" style="stroke: #ef4444;" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span class="menu-label">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="container page-header" style="padding-top: 6rem; text-align: left;">
+        <div class="dashboard-header fade-in-up">
+            <div class="welcome-text">
+                <h1>Welcome, <span id="displayUsername">Agent</span>.</h1>
+                <p style="color: var(--text-secondary);">Your daily intelligence briefing and progress report.</p>
+            </div>
+            <a href="learn.html" class="btn btn-primary">Resume Learning</a>
+        </div>
+
+        <div class="smart-card-section fade-in-up delay-1"
+            style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center;">
+            <!-- Smart Progress Card Container -->
+            <div class="card-perspective" style="perspective: 1000px; -webkit-perspective: 1000px;">
+                <div class="smart-card-inner" id="cardFlip" onclick="this.classList.toggle('flipped')"
+                    style="position: relative; width: 100%; height: 320px; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer;">
+
+                    <!-- Front Face -->
+                    <div class="card-face card-front"
+                        style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: linear-gradient(135deg, #1e293b, #0f172a); border-radius: 24px; padding: 2.5rem; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                        <div class="card-glow"
+                            style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); pointer-events: none;">
+                        </div>
+
+                        <div style="z-index: 1;">
+                            <h2 id="cardUser" style="color: #fff; margin-bottom: 0.2rem;">Username</h2>
+                            <span
+                                style="color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Cyber
+                                Cadet</span>
+                        </div>
+
+                        <div class="mascot-container"
+                            style="position: absolute; bottom: 1rem; right: 1rem; z-index: 0; opacity: 0.9;">
+                            <div class="owl-mascot"
+                                style="position: relative; width: 120px; height: 120px; animation: hover 3s ease-in-out infinite;">
+                                <div
+                                    style="position: absolute; width: 80px; height: 90px; background: #3b82f6; border-radius: 40px 40px 30px 30px; left: 20px; bottom: 10px;">
+                                    <div
+                                        style="position: absolute; width: 25px; height: 25px; background: #fff; border-radius: 50%; top: 20px; left: 10px;">
+                                        <div
+                                            style="position: absolute; width: 10px; height: 10px; background: #000; border-radius: 50%; top: 7px; left: 7px; animation: blink 4s infinite;">
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="position: absolute; width: 25px; height: 25px; background: #fff; border-radius: 50%; top: 20px; right: 10px;">
+                                        <div
+                                            style="position: absolute; width: 10px; height: 10px; background: #000; border-radius: 50%; top: 7px; left: 7px; animation: blink 4s infinite;">
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="position: absolute; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 12px solid #fbbf24; top: 45px; left: 32px;">
+                                    </div>
+                                </div>
+                                <div
+                                    style="position: absolute; width: 40px; height: 50px; background: #2563eb; border-radius: 20px; left: 0; top: 50px; transform: rotate(-10deg);">
+                                </div>
+                                <div
+                                    style="position: absolute; width: 40px; height: 50px; background: #2563eb; border-radius: 20px; right: 0; top: 50px; transform: rotate(10deg);">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="z-index: 1;">
+                            <div
+                                style="background: rgba(255,255,255,0.05); padding: 0.8rem 1.2rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 0.8rem; border: 1px solid rgba(255,255,255,0.1);">
+                                <span id="streakIcon">🔥</span>
+                                <span id="cardStreak" style="color: #fff; font-weight: 600;">Day 1 Streak</span>
+                            </div>
+                            <p style="margin-top: 1rem; font-size: 0.75rem; color: #64748b; font-weight: 600;">CLICK TO
+                                REVEAL QR ⤴️</p>
+                        </div>
+                    </div>
+
+                    <!-- Back Face -->
+                    <div class="card-face card-back"
+                        style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: #1e293b; border-radius: 24px; padding: 2.5rem; border: 2px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotateY(180deg); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                        <h3
+                            style="color: #fff; margin-bottom: 1.5rem; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase;">
+                            Identity Verification</h3>
+                        <div id="qrcode"
+                            style="background: #fff; padding: 12px; border-radius: 16px; box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); display: inline-block;">
+                        </div>
+                        <p style="margin-top: 2rem; color: #94a3b8; font-size: 0.85rem; max-width: 200px;">Scan to view
+                            your live Talent Passport</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Stats -->
+            <div class="detailed-stats">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="stat-card" style="flex-direction: column; align-items: flex-start; padding: 2rem;">
+                        <span style="font-size: 0.8rem; color: #94a3b8; text-transform: uppercase;">Cyber Points</span>
+                        <h2 id="totalCyberPoints" style="font-size: 2.5rem; margin-top: 0.5rem; color: #fff;">0</h2>
+                        <div
+                            style="width: 100%; height: 4px; background: rgba(59, 130, 246, 0.1); border-radius: 2px; margin-top: 1rem; overflow: hidden;">
+                            <div id="pointsFill"
+                                style="height: 100%; background: var(--accent); width: 0; transition: width 1.5s ease-out;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="flex-direction: column; align-items: flex-start; padding: 2rem;">
+                        <span style="font-size: 0.8rem; color: #94a3b8; text-transform: uppercase;">Overall
+                            Progress</span>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                            <div class="circular-progress"
+                                style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(var(--accent) 0%, rgba(255,255,255,0.05) 0%); display: flex; align-items: center; justify-content: center; position: relative;"
+                                id="circularProgress">
+                                <div
+                                    style="width: 50px; height: 50px; background: #18181b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span id="progressText" style="font-size: 0.8rem; font-weight: 800;">0%</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 id="completedCount" style="margin: 0; color: #fff;">0/10 Done</h4>
+                                <span style="font-size: 0.8rem; color: #64748b;">Learning Modules</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements-card"
+                    style="margin-top: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 20px;">
+                    <h4 style="font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 1rem;">
+                        Recent Achievements</h4>
+                    <div id="badgeList" style="display: flex; gap: 1rem;">
+                        <!-- Badges will appear here -->
+                        <div class="badge-lock"
+                            style="width: 45px; height: 45px; background: rgba(255,255,255,0.03); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; filter: grayscale(1); opacity: 0.3;">
+                            🛡️</div>
+                        <div class="badge-lock"
+                            style="width: 45px; height: 45px; background: rgba(255,255,255,0.03); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; filter: grayscale(1); opacity: 0.3;">
+                            ⚡</div>
+                        <div class="badge-lock"
+                            style="width: 45px; height: 45px; background: rgba(255,255,255,0.03); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; filter: grayscale(1); opacity: 0.3;">
+                            💎</div>
+                        <div class="badge-lock"
+                            style="width: 45px; height: 45px; background: rgba(255,255,255,0.03); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; filter: grayscale(1); opacity: 0.3;">
+                            🏆</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h3 class="section-header fade-in-up delay-2">Learning Statistics</h3>
+            <div class="grid-cards fade-in-up delay-2">
+                <div class="card" style="padding: 2rem;">
+                    <h4>Labs Performance</h4>
+                    <div style="margin-top: 1.5rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.5rem;">
+                            <span style="color: #94a3b8;">Practical Tasks</span>
+                            <span id="labsStatText" style="color: #fff;">0/5 Completed</span>
+                        </div>
+                        <div
+                            style="height: 8px; background: rgba(16, 185, 129, 0.1); border-radius: 4px; overflow: hidden;">
+                            <div id="labsFill"
+                                style="height: 100%; background: #10b981; width: 0; transition: width 1s ease-out;">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #64748b;">Complete more labs to earn the
+                        "Practical Expert" badge.</p>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <h4>Certification Path</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">Complete all 5 modules and 5 labs to
+                        unlock your **Cyber Safety Gold Certificate**.</p>
+                    <div id="certStatusBox"
+                        style="margin-top: 1rem; padding: 1rem; background: rgba(251, 191, 36, 0.05); border-radius: 12px; border: 1px dashed rgba(251, 191, 36, 0.2); text-align: center;">
+                        <span id="certStatusText" style="font-size: 0.8rem; color: #fbbf24; font-weight: 600;">STATUS:
+                            PRE-CADET 🔐</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <button id="downloadCertBtn" class="btn btn-primary"
+                            style="width: 100%; opacity: 0.5; cursor: not-allowed;"
+                            title="Complete all 5 levels to unlock your certificate." disabled>
+                            Download Certificate 🎓
+                        </button>
+                        <p id="unlockHint"
+                            style="font-size: 0.75rem; color: #ef4444; margin-top: 0.5rem; text-align: center;">Complete
+                            all 5 levels to unlock.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        @keyframes hover {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            90%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            95% {
+                transform: scaleY(0);
+            }
+        }
+
+        .badge-unlocked {
+            background: rgba(59, 130, 246, 0.15) !important;
+            filter: none !important;
+            opacity: 1 !important;
+            border: 1px solid var(--accent);
+            transition: 0.5s;
+            animation: pop 0.5s ease-out;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .smart-card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .cert-ready {
+            opacity: 1 !important;
+            cursor: pointer !important;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        async function downloadCertificate() {
+            let userName = "Cyber Hero";
+            const user = JSON.parse(localStorage.getItem('cvm_user'));
+
+            if (user && user.name) {
+                userName = user.name;
+            } else {
+                const guestName = prompt("Enter your full name for your certificate:", "Cyber Hero");
+                if (guestName === null) return;
+                if (guestName.trim() !== "") userName = guestName.trim();
+            }
+
+            let certId = localStorage.getItem('cvm_cert_id');
+            let certDate = localStorage.getItem('cvm_cert_date');
+
+            if (!certId) {
+                certId = `CVM-${Math.random().toString(36).substr(2, 4).toUpperCase()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
+                certDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                localStorage.setItem('cvm_cert_id', certId);
+                localStorage.setItem('cvm_cert_date', certDate);
+            }
+
+            const downloadBtn = document.getElementById('downloadCertBtn');
+            const originalText = downloadBtn.innerText;
+            downloadBtn.innerText = "Processing...";
+            downloadBtn.disabled = true;
+
+            try {
+                const response = await fetch(`certificate.html?name=${encodeURIComponent(userName)}&id=${certId}&date=${encodeURIComponent(certDate)}`);
+                const html = await response.text();
+
+                const element = document.createElement('div');
+                element.style.position = 'fixed';
+                element.style.left = '-9999px';
+                element.innerHTML = html;
+                document.body.appendChild(element);
+
+                const opt = {
+                    margin: 0,
+                    filename: `CyberVedMitra_Certificate_${userName.replace(/\s+/g, '_')}.pdf`,
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { scale: 2, useCORS: true, logging: false },
+                    jsPDF: { unit: 'px', format: [1000, 700], orientation: 'landscape' }
+                };
+
+                await html2pdf().from(element).set(opt).save();
+                document.body.removeChild(element);
+            } catch (error) {
+                console.error("Cert Error:", error);
+                alert("Generation failed. Please try again.");
+            } finally {
+                downloadBtn.innerText = originalText;
+                downloadBtn.disabled = false;
+            }
+        }
+
+        function updateDashboardStats() {
+            const user = JSON.parse(localStorage.getItem('cvm_user'));
+            if (!user) return;
+
+            document.getElementById('displayUsername').innerText = user.name || "Agent";
+            document.getElementById('cardUser').innerText = user.name || "Agent";
+
+            // Calculate Metrics
+            const completedLevels = JSON.parse(localStorage.getItem('cvm_levels_completed') || '[]');
+            const completedLabs = JSON.parse(localStorage.getItem('cvm_labs_completed') || '[]');
+
+            const levelCount = completedLevels.length;
+            const labCount = completedLabs.length;
+
+            const totalPoints = (levelCount * 50) + (labCount * 100);
+            const progressPercent = Math.round(((levelCount + labCount) / 10) * 100);
+
+            // Update UI
+            document.getElementById('totalCyberPoints').innerText = totalPoints.toLocaleString();
+            document.getElementById('pointsFill').style.width = `${Math.min(100, (totalPoints / 1000) * 100)}%`;
+
+            document.getElementById('progressText').innerText = `${progressPercent}%`;
+            document.getElementById('circularProgress').style.background = `conic-gradient(var(--accent) ${progressPercent}%, rgba(255,255,255,0.05) 0%)`;
+            document.getElementById('completedCount').innerText = `${levelCount}/5 Modules`;
+
+            document.getElementById('labsStatText').innerText = `${labCount}/5 Labs`;
+            document.getElementById('labsFill').style.width = `${(labCount / 5) * 100}%`;
+
+            // Certificate System Logic
+            const certBtn = document.getElementById('downloadCertBtn');
+            const unlockHint = document.getElementById('unlockHint');
+            const certStatusBox = document.getElementById('certStatusBox');
+            const certStatusText = document.getElementById('certStatusText');
+
+            if (levelCount >= 5) {
+                certBtn.disabled = false;
+                certBtn.classList.add('cert-ready');
+                certBtn.title = "Certified! Click to download.";
+                certBtn.onclick = downloadCertificate;
+                unlockHint.style.display = 'none';
+                certStatusBox.style.background = 'rgba(34, 197, 94, 0.1)';
+                certStatusBox.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                certStatusText.innerText = "STATUS: CERTIFIED 🏆";
+                certStatusText.style.color = "#22c55e";
+            }
+
+            // Badges logic
+            const badgeSlots = document.querySelectorAll('.badge-lock');
+            if (levelCount >= 1) badgeSlots[0].classList.add('badge-unlocked');
+            if (labCount >= 1) badgeSlots[1].classList.add('badge-unlocked');
+            if (totalPoints >= 300) badgeSlots[2].classList.add('badge-unlocked');
+            if (levelCount === 5 && labCount === 5) badgeSlots[3].classList.add('badge-unlocked');
+
+            // QR Code Generation
+            const progressData = {
+                name: user.name,
+                levels: levelCount,
+                labs: labCount,
+                points: totalPoints,
+                streak: 1, // Mock
+                badges: levelCount >= 1 ? ['🛡️'] : [],
+                certified: (levelCount === 5 && labCount === 5)
+            };
+            if (labCount >= 1) progressData.badges.push('⚡');
+            if (totalPoints >= 300) progressData.badges.push('💎');
+
+            const encodedData = btoa(JSON.stringify(progressData));
+            const reportUrl = `${window.location.origin}${window.location.pathname.replace('dashboard.html', 'progress-report.html')}?data=${encodedData}`;
+
+            document.getElementById('qrcode').innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), {
+                text: reportUrl,
+                width: 70,
+                height: 70,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        window.onload = updateDashboardStats;
+
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>

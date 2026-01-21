@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2: Password Strength | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .password-input {
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .strength-meter {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease, background-color 0.4s ease;
+        }
+
+        .strength-text {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            min-height: 1.8rem;
+        }
+
+        .criteria-list {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+            color: #94a3b8;
+        }
+
+        .criteria-item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .criteria-item.met {
+            color: #22c55e;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <a href="labs.html" class="btn btn-text" style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">✕
+                Exit Lab</a>
+        </div>
+    </header>
+
+    <main class="container lab-container">
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔐</div>
+            <h1 class="page-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Password Strength Checker</h1>
+            <p style="color: var(--text-secondary);">Create a password to see if it's safe against hackers.</p>
+            <p style="color: #ef4444; font-size: 0.9rem; margin-top: 0.5rem;">⚠️ Do NOT enter your real password!</p>
+        </div>
+
+        <!-- Interactive Tool -->
+        <div class="sim-card active" style="text-align: center;">
+            <input type="text" class="password-input" id="passwordInput" placeholder="Type a password..."
+                autocomplete="off">
+
+            <div class="strength-meter">
+                <div class="strength-fill" id="strengthFill"></div>
+            </div>
+
+            <div class="strength-text" id="strengthText">Enter a password</div>
+
+            <div class="criteria-list">
+                <div class="criteria-item" id="critLength">⚪ 8+ Characters</div>
+                <div class="criteria-item" id="critNumber">⚪ Contains Numbers</div>
+                <div class="criteria-item" id="critSymbol">⚪ Contains Symbol (!@#$)</div>
+                <div class="criteria-item" id="critCase">⚪ Mixing Upper & Lowercase</div>
+            </div>
+
+            <div id="feedbackBox" class="feedback-box" style="margin-top: 2rem; text-align: left;">
+                <h3 id="feedbackTitle"></h3>
+                <p id="feedbackText"></p>
+            </div>
+
+            <button class="btn btn-primary" onclick="finishLab()" id="finishBtn"
+                style="margin-top: 2rem; display: none; width: 100%;">Complete Lab 🏆</button>
+        </div>
+
+        <!-- Learning Tips -->
+        <div class="sim-card tips-box">
+            <h2 style="color: #eab308; font-size: 1.4rem; margin-bottom: 1rem;">🧠 How hackers crack passwords:</h2>
+            <ul style="color: #d4d4d8; line-height: 1.8; margin-bottom: 0;">
+                <li><strong>Brute Force:</strong> Computers guess millions of passwords per second.</li>
+                <li><strong>Common Lists:</strong> They use lists of popular passwords like "123456".</li>
+                <li><strong>Personal Info:</strong> They guess your birthday or pet's name.</li>
+            </ul>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="sim-card result-screen" id="resultScreen">
+            <div style="font-size: 5rem; margin-bottom: 1rem;">🎉</div>
+            <h1 style="margin-bottom: 1rem;">Well Done!</h1>
+
+            <p style="color: var(--text-secondary);">You built a strong defense.</p>
+            <div style="color: #22c55e; font-size: 1.5rem; font-weight: 700; margin: 1rem 0;">⭐ +10 Cyber Points</div>
+
+            <div
+                style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; text-align: left; margin-bottom: 2.5rem;">
+                <h3 style="color: #fff; margin-bottom: 1rem;">You Learned:</h3>
+                <ul style="color: #d4d4d8; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">✔️ What makes a password strong</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Why length matters more than complexity</li>
+                    <li>✔️ Common mistakes to avoid</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                <a href="labs.html" class="btn btn-primary">👉 Go Back to Labs Page</a>
+                <a href="lab3.html" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Next: Lab
+                    3 (Wi-Fi) 👉</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const input = document.getElementById('passwordInput');
+        const fill = document.getElementById('strengthFill');
+        const text = document.getElementById('strengthText');
+        const fbBox = document.getElementById('feedbackBox');
+        const fbTitle = document.getElementById('feedbackTitle');
+        const fbText = document.getElementById('feedbackText');
+        const finishBtn = document.getElementById('finishBtn');
+
+        input.addEventListener('input', checkStrength);
+
+        function checkStrength() {
+            const val = input.value;
+            let strength = 0;
+
+            // Criteria Check
+            const length = val.length >= 8;
+            const hasNum = /\d/.test(val);
+            const hasSym = /[!@#$%^&*(),.?":{}|<>]/.test(val);
+            const hasCase = /[a-z]/.test(val) && /[A-Z]/.test(val);
+
+            updateCriteria('critLength', length);
+            updateCriteria('critNumber', hasNum);
+            updateCriteria('critSymbol', hasSym);
+            updateCriteria('critCase', hasCase);
+
+            if (length) strength += 1;
+            if (hasNum) strength += 1;
+            if (hasSym) strength += 1;
+            if (hasCase) strength += 1;
+
+            // Visual Update
+            if (val.length === 0) {
+                setMeter(0, 'Enter a password', 'transparent');
+                fbBox.style.display = 'none';
+                finishBtn.style.display = 'none';
+                return;
+            }
+
+            if (val.length < 5) {
+                setMeter(10, '❌ Too Short', '#ef4444');
+                showFeedback('Too Weak', 'Hackers can guess this instantly.', 'wrong');
+            } else if (strength < 2) {
+                setMeter(30, '⚠️ Weak', '#ef4444');
+                showFeedback('Weak', 'Try adding numbers or symbols.', 'wrong');
+            } else if (strength < 4) {
+                setMeter(60, '🤔 Medium', '#eab308');
+                showFeedback('Getting Better', 'Almost there! Make it longer or add symbols.', 'wrong'); // slightly misleading class reuse for yellow but ok
+                fbBox.classList.remove('wrong', 'correct');
+                fbBox.style.borderColor = '#eab308';
+                fbBox.style.background = 'rgba(234, 179, 8, 0.1)';
+            } else {
+                setMeter(100, '✅ Strong!', '#22c55e');
+                showFeedback('Great Password!', 'This would take centuries to crack.', 'correct');
+                finishBtn.style.display = 'block';
+            }
+        }
+
+        function updateCriteria(id, met) {
+            const el = document.getElementById(id);
+            if (met) {
+                el.classList.add('met');
+                el.innerHTML = '✅ ' + el.innerText.substring(2);
+            } else {
+                el.classList.remove('met');
+                el.innerHTML = '⚪ ' + el.innerText.substring(2);
+            }
+        }
+
+        function setMeter(width, msg, color) {
+            fill.style.width = width + '%';
+            fill.style.backgroundColor = color;
+            text.innerText = msg;
+            text.style.color = color;
+        }
+
+        function showFeedback(title, msg, type) {
+            fbBox.style.display = 'block';
+            fbTitle.innerText = title;
+            fbText.innerText = msg;
+
+            fbBox.className = 'feedback-box ' + type;
+            if (type === 'wrong') {
+                fbTitle.style.color = '#ef4444';
+            } else {
+                fbTitle.style.color = '#22c55e';
+            }
+        }
+
+        function finishLab() {
+            document.querySelector('.sim-card.active').style.display = 'none';
+            document.querySelector('.sim-card.tips-box').style.display = 'none';
+            document.getElementById('resultScreen').style.display = 'block';
+            document.getElementById('resultScreen').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

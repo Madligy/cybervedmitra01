@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Protection | Cyber Tip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .tip-detail-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .tip-body {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tip-body h3 {
+            color: #fff;
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .best-practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .best-practices-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="awareness.html" class="logo">← Back to Awareness</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tip-detail-container fade-in-up">
+            <span class="tip-tag">Friday Tip</span>
+            <h1 class="tip-title">Two-Factor Authentication (2FA)</h1>
+
+            <div class="tip-body">
+                <p>Two-Factor Authentication (also called Multi-Factor Authentication) is an extra layer of security for
+                    your digital accounts. Instead of just requiring a password, it requires two pieces of evidence to
+                    prove you are who you say you are.</p>
+
+                <div class="highlight-box">
+                    "Passwords alone are not enough. 2FA adds an extra layer of protection to your identity."
+                </div>
+
+                <h3>Why This Matters</h3>
+                <p>If a hacker steals your password (through phishing or a data breach), 2FA prevents them from getting
+                    into your account because they won't have the second factor (like your phone or a security key).</p>
+
+                <h3>Real-World Example</h3>
+                <p>Think of it like an ATM. To get money, you need two things: Something you HAVE (your debit card) and
+                    something you KNOW (your PIN). If a thief steals your card, they still can't get money without the
+                    PIN. 2FA is the digital version of this.</p>
+
+                <h3>Best Practices</h3>
+                <ul class="best-practices-list">
+                    <li><strong>Turn it ON:</strong> Enable 2FA on every account that offers it (Instagram, Google,
+                        Discord, Fortnite).</li>
+                    <li><strong>Use Authentication Apps:</strong> Apps like Google Authenticator or Authy are more
+                        secure than SMS (text message) codes.</li>
+                    <li><strong>Keep Recovery Codes Safe:</strong> When you set up 2FA, you'll get recovery codes. Save
+                        them in a safe place in case you lose your phone.</li>
+                    <li><strong>Never Share Codes:</strong> If someone calls and asks for your 2FA code, they are a
+                        hacker. No legitimate company will ever ask for it.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center;">
+                <a href="awareness.html" class="btn btn-primary">Got it, thanks!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="ui.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.fade-in-up').style.opacity = '1';
+            document.querySelector('.fade-in-up').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>

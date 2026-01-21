@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: Spot the Phishing | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <!-- Simplified Header for Lab Mode -->
+            <a href="labs.html" class="btn btn-text" style="margin-left: auto; color: #d4d4d8; font-size: 0.9rem;">✕
+                Exit Lab</a>
+        </div>
+    </header>
+
+    <main class="container lab-container">
+
+        <!-- Progress -->
+        <div
+            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <span>Lab 1: Spot the Phishing</span>
+            <span id="progressText">Question 1/3</span>
+        </div>
+        <div class="lab-progress-bar">
+            <div class="lab-progress-fill" id="progressBar" style="width: 33%;"></div>
+        </div>
+
+        <!-- SCENARIO 1 -->
+        <div class="sim-card active" id="scenario1">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">📩 Message 1 of 3</h2>
+
+            <div class="message-box">
+                <div class="msg-header">
+                    <div>
+                        <span style="color: #64748b; font-size: 0.8rem;">From:</span>
+                        <span class="msg-from">school-support@gmail.com</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">10:30 AM</span>
+                </div>
+                <div class="msg-body">
+                    <p style="font-weight: 700; color: #dc2626; margin-bottom: 1rem;">⚠️ Your school account will be
+                        blocked today!</p>
+                    <p>Click here immediately to verify your details:</p>
+                    <p style="margin-top: 0.5rem;"><a href="#"
+                            style="color: #2563eb; pointer-events: none; text-decoration: underline;">http://school-login-alert.net</a>
+                        👈</p>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff;">Is this message safe?</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(1, 'safe')">🔘 Safe</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(1, 'phishing')">🔘
+                        Phishing</button>
+                </div>
+
+                <div class="feedback-box" id="feedback1">
+                    <h3 id="feedbackTitle1" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText1" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Creates fear ("blocked today!")</li>
+                        <li>Urgent action required</li>
+                        <li>Suspicious link (not a real school site)</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="nextScenario(2)">Next Message 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENARIO 2 -->
+        <div class="sim-card" id="scenario2">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">📩 Message 2 of 3</h2>
+
+            <div class="message-box">
+                <div class="msg-header">
+                    <div>
+                        <span style="color: #64748b; font-size: 0.8rem;">From:</span>
+                        <span class="msg-from">Alex (Classmate)</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">11:15 AM</span>
+                </div>
+                <div class="msg-body">
+                    <p>Hey! I shared the math class notes in the school WhatsApp group separately 👍</p>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff;">Is this message safe?</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(2, 'safe')">🔘 Safe</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(2, 'phishing')">🔘
+                        Phishing</button>
+                </div>
+
+                <div class="feedback-box" id="feedback2">
+                    <h3 id="feedbackTitle2" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText2" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>No suspicious links</li>
+                        <li>No personal info asked</li>
+                        <li>Normal, friendly language</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="nextScenario(3)">Next Message 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENARIO 3 -->
+        <div class="sim-card" id="scenario3">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">📩 Message 3 of 3</h2>
+
+            <div class="message-box">
+                <div class="msg-header">
+                    <div>
+                        <span style="color: #64748b; font-size: 0.8rem;">From:</span>
+                        <span class="msg-from">freegames@rewardz.com</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">12:00 PM</span>
+                </div>
+                <div class="msg-body">
+                    <p style="font-size: 1.2rem; font-weight: 700; color: #eab308; margin-bottom: 0.5rem;">🎮 Get 10,000
+                        FREE game coins!</p>
+                    <p>Login now with your email password to claim your reward before it expires!</p>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff;">Is this message safe?</p>
+
+                <div class="decision-controls">
+                    <button class="btn-decision btn-safe" onclick="checkLabAnswer(3, 'safe')">🔘 Safe</button>
+                    <button class="btn-decision btn-phishing" onclick="checkLabAnswer(3, 'phishing')">🔘
+                        Phishing</button>
+                </div>
+
+                <div class="feedback-box" id="feedback3">
+                    <h3 id="feedbackTitle3" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="feedbackText3" style="color: #d4d4d8; margin-bottom: 1rem;"></p>
+                    <ul style="padding-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                        <li>Too-good-to-be-true offer</li>
+                        <li>Asks for your PASSWORD directly</li>
+                        <li>Unknown sender</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="showResults()">Finish Lab 🏆</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Tips -->
+        <div class="sim-card tips-box" id="tipsSection">
+            <h2 style="color: #eab308; font-size: 1.4rem; margin-bottom: 1rem;">🧠 Instant Learning Tips</h2>
+            <h3 style="color: #fff; margin-bottom: 0.5rem;">🚨 Phishing Warning Signs:</h3>
+            <ul style="color: #d4d4d8; line-height: 1.8; margin-bottom: 0;">
+                <li><strong>Urgent or Scary:</strong> "Blocked account", "Act now!"</li>
+                <li><strong>Free Rewards:</strong> "You won!", "Free coins!"</li>
+                <li><strong>Unknown Senders:</strong> Strange email addresses.</li>
+                <li><strong>Asking for Secrets:</strong> Never share passwords or OTPs.</li>
+            </ul>
+        </div>
+
+        <!-- Lab Result Screen -->
+        <div class="sim-card result-screen" id="resultScreen">
+            <div style="font-size: 5rem; margin-bottom: 1rem;">🎉</div>
+            <h1 style="margin-bottom: 1rem;">Great Job, Cyber Cadet!</h1>
+
+            <p style="color: var(--text-secondary);">Your Result:</p>
+            <div class="result-score" id="finalScore">3 / 3</div>
+            <div style="color: #22c55e; font-size: 1.1rem; margin-bottom: 2rem;">⭐ +10 Cyber Points Earned</div>
+
+            <div
+                style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; text-align: left; margin-bottom: 2.5rem;">
+                <h3 style="color: #fff; margin-bottom: 1rem;">You Learned:</h3>
+                <ul style="color: #d4d4d8; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">✔️ How to spot phishing messages</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ When not to click links</li>
+                    <li>✔️ How scammers trick students</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                <a href="labs.html" class="btn btn-primary">👉 Go Back to Labs Page</a>
+                <a href="level2.html" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Continue
+                    Learning (Level 2)</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let score = 0;
+        const correctAnswers = {
+            1: 'phishing',
+            2: 'safe',
+            3: 'phishing'
+        };
+
+        function checkLabAnswer(scenarioId, answer) {
+            const isCorrect = correctAnswers[scenarioId] === answer;
+            const feedbackBox = document.getElementById(`feedback${scenarioId}`);
+            const title = document.getElementById(`feedbackTitle1`.replace('1', scenarioId));
+            const text = document.getElementById(`feedbackText1`.replace('1', scenarioId));
+            const btns = document.querySelectorAll(`#scenario${scenarioId} .btn-decision`);
+
+            // Disable buttons
+            btns.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                if (btn.innerText.toLowerCase().includes(answer)) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.style.opacity = '0.5';
+                }
+            });
+
+            feedbackBox.style.display = 'block';
+
+            if (isCorrect) {
+                score++;
+                feedbackBox.classList.add('correct');
+                title.innerText = "✅ Correct!";
+                title.style.color = "#22c55e";
+                text.innerText = "You spotted it correctly. Here's why:";
+            } else {
+                feedbackBox.classList.add('wrong');
+                title.innerText = "❌ Not quite.";
+                title.style.color = "#ef4444";
+                text.innerText = "Good try, but take a closer look:";
+            }
+        }
+
+        function nextScenario(nextId) {
+            // Update Progress
+            const total = 3;
+            document.getElementById('progressText').innerText = `Question ${nextId}/${total}`;
+            document.getElementById('progressBar').style.width = `${(nextId / total) * 100}%`;
+
+            // Hide current, Show next
+            document.getElementById(`scenario${nextId - 1}`).classList.remove('active');
+            document.getElementById(`scenario${nextId}`).classList.add('active');
+        }
+
+        function showResults() {
+            document.getElementById('scenario3').classList.remove('active');
+            document.getElementById('tipsSection').style.display = 'none'; // Hide tips on result screen
+            document.getElementById('resultScreen').classList.add('active');
+            document.getElementById('finalScore').innerText = `✅ Correct Answers: ${score} / 3`;
+
+            // Hide progress bar on result screen
+            document.querySelector('.lab-progress-bar').style.display = 'none';
+            document.getElementById('progressText').innerText = "Lab Complete";
+        }
+    </script>
+</body>
+
+</html>

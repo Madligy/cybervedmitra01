@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Talent Passport | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #3b82f6;
+            --bg-dark: #09090b;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .passport-container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .passport-header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .passport-header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .passport-header p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .passport-body {
+            padding: 2rem;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--accent), #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .user-details h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .user-details p {
+            font-size: 0.85rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge-list {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .badge-icon {
+            flex: 0 0 auto;
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .footer-stamp {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+
+        .cyber-seal {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="passport-container fade-in-up">
+        <div class="passport-header">
+            <h1 id="title">Cyber Passport</h1>
+            <p>Official Learning Progress Verification</p>
+        </div>
+
+        <div class="passport-body">
+            <div class="user-profile">
+                <div class="avatar-circle" id="userInitial">C</div>
+                <div class="user-details">
+                    <h2 id="userName">User Name</h2>
+                    <p id="userRank">Level 1 - Cadet</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value" id="labsCompleted">0</span>
+                    <span class="stat-label">Labs Done</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="levelsCompleted">0</span>
+                    <span class="stat-label">Modules</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalPoints">0</span>
+                    <span class="stat-label">Cyber Points</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="streakDays">0</span>
+                    <span class="stat-label">Day Streak</span>
+                </div>
+            </div>
+
+            <div class="badge-section">
+                <h4 style="margin-bottom: 1rem; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase;">Badges
+                    Earned</h4>
+                <div class="badge-list" id="badgeList">
+                    <!-- Badges will be injected here -->
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <p id="certStatus" style="font-size: 0.9rem; color: #22c55e; font-weight: 600;">Certificate: In Progress
+                    🎓</p>
+            </div>
+        </div>
+
+        <div class="footer-stamp">
+            Verified by CyberVedMitra Security Protocol v2.5<br>
+            Timestamp: <span id="timestamp"></span>
+        </div>
+
+        <svg class="cyber-seal" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+        </svg>
+    </div>
+
+    <script>
+        // Parse data from URL (Base64 encoded JSON)
+        function loadPassportData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dataParam = urlParams.get('data');
+
+            if (!dataParam) {
+                document.body.innerHTML = "<h1>Invalid Passport Data</h1>";
+                return;
+            }
+
+            try {
+                const data = JSON.parse(atob(dataParam));
+
+                document.getElementById('userName').innerText = data.name || "Enthusiast";
+                document.getElementById('userInitial').innerText = (data.name || "C")[0].toUpperCase();
+                document.getElementById('labsCompleted').innerText = data.labs || 0;
+                document.getElementById('levelsCompleted').innerText = data.levels || 0;
+                document.getElementById('totalPoints').innerText = data.points || 0;
+                document.getElementById('streakDays').innerText = data.streak || 1;
+                document.getElementById('userRank').innerText = `Level ${data.levels || 1} - ${data.rank || 'Cadet'}`;
+                document.getElementById('timestamp').innerText = new Date().toLocaleString();
+
+                const badgeList = document.getElementById('badgeList');
+                const badges = data.badges || ['🛡️', '⚡'];
+                badges.forEach(b => {
+                    const badge = document.createElement('div');
+                    badge.className = 'badge-icon';
+                    badge.innerText = b;
+                    badgeList.appendChild(badge);
+                });
+
+                if (data.certified) {
+                    document.getElementById('certStatus').innerText = "Certificate: EARNED 🏆";
+                    document.getElementById('certStatus').style.color = "#eab308";
+                }
+
+            } catch (e) {
+                console.error("Failed to parse data", e);
+                document.body.innerHTML = "<h1>Error Reading Passport</h1>";
+            }
+        }
+
+        loadPassportData();
+
+        setTimeout(() => {
+            const el = document.querySelector('.fade-in-up');
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+
+</html>
