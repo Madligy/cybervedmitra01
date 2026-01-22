@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Completion Certificate | CyberVedMitra</title>
+    <title>Certificate of Completion | CyberVedMitra</title>
+    <!-- Premium Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Dancing+Script:wght@700&family=Inter:wght@400;700;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --gold: #d4af37;
             --navy: #0f172a;
-            --accent: #3b82f6;
+            --gold: #d4af37;
+            --blue: #3b82f6;
+            --gray: #64748b;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background: #f8fafc;
+            background: #f1f5f9;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,110 +28,115 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .certificate-wrapper {
-            width: 1000px;
-            height: 700px;
-            background: #fff;
-            position: relative;
+        .certificate-container {
+            width: 1120px;
+            height: 790px;
+            background: #ffffff;
             padding: 40px;
             box-sizing: border-box;
-            border: 20px solid var(--navy);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+            border: 25px solid var(--navy);
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
         }
 
         .inner-border {
             width: 100%;
             height: 100%;
-            border: 2px solid var(--gold);
-            padding: 20px;
+            border: 3px solid var(--gold);
+            padding: 30px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
             position: relative;
+            background: #ffffff;
         }
 
-        .decorative-corner {
+        .corner {
             position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--gold);
+            width: 50px;
+            height: 50px;
         }
 
         .top-left {
-            top: -10px;
-            left: -10px;
-            border-right: none;
-            border-bottom: none;
+            top: 15px;
+            left: 15px;
+            border-top: 4px solid var(--gold);
+            border-left: 4px solid var(--gold);
         }
 
         .top-right {
-            top: -10px;
-            right: -10px;
-            border-left: none;
-            border-bottom: none;
+            top: 15px;
+            right: 15px;
+            border-top: 4px solid var(--gold);
+            border-right: 4px solid var(--gold);
         }
 
         .bottom-left {
-            bottom: -10px;
-            left: -10px;
-            border-right: none;
-            border-top: none;
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 4px solid var(--gold);
+            border-left: 4px solid var(--gold);
         }
 
         .bottom-right {
-            bottom: -10px;
-            right: -10px;
-            border-left: none;
-            border-top: none;
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 4px solid var(--gold);
+            border-right: 4px solid var(--gold);
         }
 
         .logo-section {
-            margin-top: 30px;
             text-align: center;
+            margin-top: 20px;
         }
 
         .platform-name {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--navy);
-            letter-spacing: 0.2em;
-            margin-bottom: 5px;
+            letter-spacing: 0.3em;
+            font-weight: 700;
         }
 
         .cert-title {
-            font-size: 3.5rem;
+            font-size: 4.2rem;
             font-weight: 800;
             color: var(--navy);
-            margin: 20px 0;
+            margin: 0;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
+            line-height: 1.1;
+            text-align: center;
         }
 
         .recipient-prefix {
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin: 0;
         }
 
         .recipient-name {
             font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
-            color: var(--accent);
-            margin: 10px 0;
+            font-size: 5rem;
+            color: var(--blue);
+            margin: 20px 0;
             border-bottom: 2px solid #e2e8f0;
-            padding: 0 40px;
-            min-width: 400px;
+            padding: 0 80px;
+            display: inline-block;
+            min-width: 500px;
             text-align: center;
         }
 
         .cert-desc {
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            line-height: 1.8;
             color: #475569;
             text-align: center;
-            max-width: 600px;
-            margin-top: 20px;
+            max-width: 850px;
+            margin: 0 auto;
         }
 
         .highlight {
@@ -140,8 +147,8 @@
         .footer-details {
             display: flex;
             justify-content: space-between;
-            width: 80%;
-            margin-top: auto;
+            width: 90%;
+            margin-top: 40px;
             margin-bottom: 30px;
             align-items: flex-end;
         }
@@ -153,74 +160,65 @@
         .detail-line {
             border-top: 1px solid #94a3b8;
             padding-top: 10px;
-            width: 180px;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        .id-badge {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #94a3b8;
-            background: #f1f5f9;
-            padding: 5px 12px;
-            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
         }
 
         .seal {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: var(--gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: #ffffff;
             font-weight: 800;
             transform: rotate(-15deg);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-            border: 4px double #fff;
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 10px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+            border: 6px double #ffffff;
+            font-size: 1rem;
+            padding: 15px;
             box-sizing: border-box;
+            line-height: 1.3;
         }
 
-        .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--navy);
-            margin-bottom: 5px;
-        }
-
-        .cert-footer-note {
+        .id-badge {
             position: absolute;
-            bottom: 10px;
-            font-size: 0.7rem;
-            color: #cbd5e1;
-            text-transform: uppercase;
+            bottom: 20px;
+            right: 25px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            background: #f1f5f9;
+            padding: 5px 12px;
+            border-radius: 5px;
             letter-spacing: 0.1em;
         }
     </style>
 </head>
 
 <body>
-    <div class="certificate-wrapper" id="certificate">
+    <div class="certificate-container" id="cert-content">
         <div class="inner-border">
-            <div class="decorative-corner top-left"></div>
-            <div class="decorative-corner top-right"></div>
-            <div class="decorative-corner bottom-left"></div>
-            <div class="decorative-corner bottom-right"></div>
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
 
             <div class="logo-section">
                 <div class="platform-name">CYBERVEDMITRA</div>
-                <div style="width: 50px; height: 2px; background: var(--gold); margin: 10px auto;"></div>
+                <div style="width: 80px; height: 3px; background: var(--gold); margin: 15px auto;"></div>
             </div>
 
-            <h1 class="cert-title">Certificate of Completion</h1>
+            <div style="text-align: center;">
+                <h1 class="cert-title">Certificate</h1>
+                <h3
+                    style="font-size: 1.6rem; font-weight: 400; color: #64748b; margin: 12px 0 0 0; letter-spacing: 0.25em; text-transform: uppercase;">
+                    of Completion</h3>
+            </div>
 
             <p class="recipient-prefix">This is to certify that</p>
             <h2 class="recipient-name" id="userName">Student Name</h2>
@@ -233,8 +231,14 @@
             </p>
 
             <div class="footer-details">
-                <div class="detail-item">
-                    <div class="signature">Ved Mitra</div>
+                <div class="detail-item" style="width: 280px;">
+                    <div
+                        style="height: 80px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 8px;">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACHAXsDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBIRhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/w8fCP/aAAwDAQACEQMRAD8A8geNW0m10fS7XSNIdIdIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfI6fPh"
+                            style="max-height: 90px;" alt="Signature">
+                    </div>
+                    <div style="font-weight: 700; color: var(--navy); font-size: 1.25rem; margin-bottom: 4px;">Suhas J
+                    </div>
                     <div class="detail-line">CEO, CyberVedMitra</div>
                 </div>
 
@@ -242,28 +246,26 @@
                     <div class="seal">OFFICIAL<br>VERIFIED<br>2026</div>
                 </div>
 
-                <div class="detail-item">
-                    <div id="issueDate" style="font-weight: 600; color: var(--navy); margin-bottom: 5px;">January 22,
-                        2026</div>
+                <div class="detail-item" style="width: 280px;">
+                    <div id="issueDate"
+                        style="font-weight: 700; color: var(--navy); margin-bottom: 45px; font-size: 1.4rem;">January
+                        22, 2026</div>
                     <div class="detail-line">Date of Achievement</div>
                 </div>
             </div>
 
             <div class="id-badge">ID: <span id="certId">CVM-XXXX-XXXX</span></div>
-            <div class="cert-footer-note">This certificate is issued for cyber awareness learning.</div>
         </div>
     </div>
 
     <script>
-        // Load data from URL parameters for preview/export
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById('userName').innerText = urlParams.get('name') || "Guest Learner";
-        document.getElementById('certId').innerText = urlParams.get('id') || "CVM-TEMP-0000";
-        document.getElementById('issueDate').innerText = urlParams.get('date') || new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        // Preview logic
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('name')) document.getElementById('userName').innerText = urlParams.get('name');
+            if (urlParams.has('id')) document.getElementById('certId').innerText = urlParams.get('id');
+            if (urlParams.has('date')) document.getElementById('issueDate').innerText = urlParams.get('date');
+        };
     </script>
 </body>
 

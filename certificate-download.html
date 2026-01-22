@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .background-glow,
+            .nav-pill,
+            .download-btn-container,
+            .btn-return-home {
+                display: none;
+            }
+
+            .certificate-content {
+                color: #000 !important;
+                background: #fff !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        }
+
+        .certificate-content {
+            background: rgba(255, 255, 255, 0.97);
+            border: 20px solid #0f172a;
+            border-radius: 0;
+            padding: 50px;
+            max-width: 1122px;
+            margin: 2rem auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .cert-inner {
+            border: 3px solid #d4af37;
+            padding: 40px;
+            position: relative;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+        .top-left {
+            top: 15px;
+            left: 15px;
+            border-top: 4px solid #d4af37;
+            border-left: 4px solid #d4af37;
+        }
+
+        .top-right {
+            top: 15px;
+            right: 15px;
+            border-top: 4px solid #d4af37;
+            border-right: 4px solid #d4af37;
+        }
+
+        .bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 4px solid #d4af37;
+            border-left: 4px solid #d4af37;
+        }
+
+        .bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 4px solid #d4af37;
+            border-right: 4px solid #d4af37;
+        }
+
+        .cert-header {
+            text-align: center;
+            margin-top: 20px;
+            color: #0f172a;
+        }
+
+        .cert-org {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            margin: 0 auto;
+        }
+
+        .cert-title-section {
+            text-align: center;
+            margin: 30px 0;
+            color: #0f172a;
+        }
+
+        .cert-main-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            line-height: 1.1;
+        }
+
+        .cert-subtitle {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #64748b;
+            margin: 12px 0 0 0;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        .recipient-section {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .recipient-prefix {
+            font-size: 1.4rem;
+            color: #64748b;
+            margin: 0 0 20px 0;
+        }
+
+        .recipient-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #3b82f6;
+            margin: 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding: 0 60px 10px 60px;
+            display: inline-block;
+            min-width: 500px;
+        }
+
+        .cert-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: center;
+            max-width: 850px;
+            margin: 30px auto;
+        }
+
+        .cert-footer {
+            display: flex;
+            justify-content: space-between;
+            width: 92%;
+            margin-top: 40px;
+            align-items: flex-end;
+        }
+
+        .signature-block {
+            text-align: center;
+            width: 280px;
+        }
+
+        .signature-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .signature-line {
+            width: 240px;
+            border-top: 2px solid #94a3b8;
+            margin: 0 auto 8px auto;
+        }
+
+        .signature-title {
+            font-size: 1rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .signature-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .official-seal {
+            width: 130px;
+            height: 130px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            transform: rotate(-15deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            border: 7px double #ffffff;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 15px;
+            line-height: 1.3;
+        }
+
+        .date-block {
+            text-align: center;
+            width: 280px;
+        }
+
+        .issue-date {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .cert-id {
+            position: absolute;
+            bottom: 25px;
+            right: 30px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            background: #f1f5f9;
+            padding: 6px 15px;
+            border-radius: 6px;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="background-glow"></div>
+
+    <a href="dashboard.html" class="btn-return-home" style="top: 2rem; left: 2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Dashboard
+    </a>
+
+    <header>
+        <div class="nav-pill">
+            <a href="index.html" class="logo">Cybervedmitra</a>
+            <button class="hamburger-btn" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="header-auth-wrapper">
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-text" style="color: #fff; margin-right: 15px;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Sign
+                    Up</a>
+            </div>
+            <button class="btn btn-text btn-logout-header hidden" onclick="logout()"
+                style="color: #ef4444; font-weight: 600;">Logout</button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-links">
+            <li><a href="index.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="menu-label">Home</span>
+                </a></li>
+            <li><a href="dashboard.html" onclick="toggleMenu()">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                    <span class="menu-label">Dashboard</span>
+                </a></li>
+        </ul>
+    </div>
+
+    <main class="container" style="padding-top: 2rem;">
+
+        <div id="pdf-content" class="certificate-content">
+            <div class="cert-inner">
+                <div class="corner-decoration top-left"></div>
+                <div class="corner-decoration top-right"></div>
+                <div class="corner-decoration bottom-left"></div>
+                <div class="corner-decoration bottom-right"></div>
+
+                <div class="cert-header">
+                    <div class="cert-org">CYBERVEDMITRA</div>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="cert-title-section">
+                    <h1 class="cert-main-title">Certificate</h1>
+                    <h3 class="cert-subtitle">of Completion</h3>
+                </div>
+
+                <div class="recipient-section">
+                    <p class="recipient-prefix">This is to certify that</p>
+                    <h2 class="recipient-name" id="recipientName">Cyber Hero</h2>
+                </div>
+
+                <p class="cert-description">
+                    has successfully mastered all <strong style="color: #0f172a;">5 Learning Levels</strong> in the
+                    <strong style="color: #0f172a;">Cyber Awareness & Security Shield Program</strong>.
+                    They have demonstrated exceptional understanding of digital safety, threat prevention, and ethical
+                    online conduct.
+                </p>
+
+                <div class="cert-footer">
+                    <div class="signature-block">
+                        <div class="signature-name">Suhas J</div>
+                        <div class="signature-line"></div>
+                        <div class="signature-title">CEO, CyberVedMitra</div>
+                        <div class="signature-label">Signature</div>
+                    </div>
+
+                    <div class="official-seal">
+                        OFFICIAL<br>VERIFIED<br>2026
+                    </div>
+
+                    <div class="date-block">
+                        <div class="issue-date" id="issueDate">January 22, 2026</div>
+                        <div class="signature-line"></div>
+                        <div class="signature-title">Date of Achievement</div>
+                    </div>
+                </div>
+
+                <div class="cert-id">ID: <span id="certId">CVM-XXXX-XXXX</span></div>
+            </div>
+        </div>
+
+        <div class="download-btn-container" style="text-align: center; max-width: 1122px; margin: 2rem auto;">
+            <button onclick="downloadCertificate()" class="btn btn-primary" id="downloadBtn"
+                style="padding: 1rem 2rem; font-size: 1.1rem;">
+                📥 Download Certificate (PDF)
+            </button>
+        </div>
+
+    </main>
+
+    <script src="ui.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Populate certificate with user data on page load
+        window.onload = function () {
+            const user = JSON.parse(localStorage.getItem('cvm_user'));
+            let userName = 'Cyber Hero';
+
+            if (user && user.name) {
+                userName = user.name;
+            }
+
+            document.getElementById('recipientName').innerText = userName;
+
+            // Generate certificate ID if not exists
+            let certId = localStorage.getItem('cvm_cert_id');
+            let certDate = localStorage.getItem('cvm_cert_date');
+
+            if (!certId) {
+                certId = `CVM-${Math.random().toString(36).substr(2, 4).toUpperCase()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
+                localStorage.setItem('cvm_cert_id', certId);
+            }
+
+            if (!certDate) {
+                const today = new Date();
+                certDate = today.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                localStorage.setItem('cvm_cert_date', certDate);
+            }
+
+            document.getElementById('certId').innerText = certId;
+            document.getElementById('issueDate').innerText = certDate;
+        };
+
+        function downloadCertificate() {
+            const element = document.getElementById('pdf-content');
+            const btn = document.getElementById('downloadBtn');
+            const userName = document.getElementById('recipientName').innerText;
+
+            // Visual feedback
+            const originalText = btn.innerText;
+            btn.innerText = "⏳ Generating PDF...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            const opt = {
+                margin: 0,
+                filename: `CyberVedMitra_Certificate_${userName.replace(/\s+/g, '_')}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#ffffff',
+                    logging: false
+                },
+                jsPDF: { unit: 'px', format: 'a4', orientation: 'landscape' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerText = "✅ Downloaded!";
+                btn.style.opacity = "1";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }).catch(err => {
+                console.error("PDF generation error:", err);
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+                btn.disabled = false;
+                alert("Failed to generate PDF. Please try again.");
+            });
+        }
+    </script>
+</body>
+
+</html>

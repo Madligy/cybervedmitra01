@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission: Phishing Defense | Cybervedmitra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --game-accent: #3b82f6;
+            --game-danger: #ef4444;
+            --game-success: #22c55e;
+            --game-bg: #09090b;
+            --card-bg: rgba(24, 24, 27, 0.8);
+        }
+
+        body {
+            background-color: var(--game-bg);
+            overflow-x: hidden;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .mission-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #71717a;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .health-bar-container {
+            width: 200px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .health-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--game-success), #4ade80);
+            width: 100%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .message-simulator {
+            min-height: 400px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+        }
+
+        .message-bubble {
+            background: #18181b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 18px;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 2.5rem;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.2rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .type-email {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .type-sms {
+            background: rgba(168, 85, 247, 0.2);
+            color: #c084fc;
+        }
+
+        .type-dm {
+            background: rgba(234, 179, 8, 0.2);
+            color: #fde047;
+        }
+
+        .message-content {
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .message-sender {
+            font-size: 0.85rem;
+            color: #71717a;
+        }
+
+        .choice-buttons {
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .choice-btn {
+            flex: 1;
+            padding: 1.2rem;
+            border-radius: 14px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-safe {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .btn-safe:hover {
+            background: var(--game-success);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        .btn-danger:hover {
+            background: var(--game-danger);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2);
+        }
+
+        .feedback-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .result-badge {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        .return-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .return-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <a href="labs.html" class="return-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6" />
+        </svg>
+        Return to Labs
+    </a>
+
+    <div class="game-container">
+        <div class="mission-header" id="missionHeader">
+            <span
+                style="color: var(--game-accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Active
+                Mission</span>
+            <h1 style="font-size: 3rem; color: #fff; margin-top: 0.5rem;">Phishing Defense</h1>
+            <p style="color: #71717a; margin-top: 1rem;">Incoming suspicious messages detected. Can you protect your
+                data?</p>
+        </div>
+
+        <div class="mission-status-bar" id="statusBar">
+            <div class="stat-item">
+                <span class="stat-label">Progress</span>
+                <span class="stat-value" id="progressVal">1 / 6</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Shield Integrity</span>
+                <div class="health-bar-container">
+                    <div class="health-bar-fill" id="healthFill"></div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Score</span>
+                <span class="stat-value" id="scoreVal">0</span>
+            </div>
+        </div>
+
+        <div class="message-simulator" id="gameScreen">
+            <div class="feedback-overlay" id="feedbackOverlay"></div>
+
+            <div class="message-bubble">
+                <div class="message-type type-email" id="msgType">Email</div>
+                <div class="message-content" id="msgContent">
+                    Loading Mission Data...
+                </div>
+                <div class="message-sender" id="msgSender">
+                    From: system@security.cmd
+                </div>
+            </div>
+
+            <div class="choice-buttons">
+                <button class="choice-btn btn-safe" onclick="handleChoice(true)">
+                    <span>✅ Safe</span>
+                    <span style="font-size: 0.7rem; font-weight: 400; opacity: 0.7;">Trust & Proceed</span>
+                </button>
+                <button class="choice-btn btn-danger" onclick="handleChoice(false)">
+                    <span>🚩 Suspicious</span>
+                    <span style="font-size: 0.7rem; font-weight: 400; opacity: 0.7;">Mark as Phishing</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="result-screen" id="resultScreen">
+            <div class="result-badge" id="resultIcon">🏆</div>
+            <h1 id="resultTitle" style="font-size: 3rem; color: #fff;">Mission Accomplished!</h1>
+            <p id="resultDesc" style="color: #a1a1aa; font-size: 1.2rem; margin: 1rem 0 3rem;"></p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn btn-primary" onclick="location.reload()" style="padding: 1.2rem 2.5rem;">Restart
+                    Mission</button>
+                <a href="badges.html" class="btn btn-secondary"
+                    style="padding: 1.2rem 2.5rem; background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.3); color: #4ade80;">Claim
+                    My Badge</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            {
+                type: 'Email',
+                typeClass: 'type-email',
+                content: "URGENT: Your bank account has been locked. Click here to verify your identity: http://secure-bnk-login.co/verify",
+                sender: "From: Security Team <noreply@bank-support.com>",
+                isSafe: false,
+                feedback: "Scam! Banks never use urgent threats or suspicious links like '.co'."
+            },
+            {
+                type: 'SMS',
+                typeClass: 'type-sms',
+                content: "Hey! Just checking in to see if you're coming to the study session tomorrow at 4 PM at the library? - Sarah",
+                sender: "From: +1 (555) 0199",
+                isSafe: true,
+                feedback: "Safe. This is a personal message with no suspicious links or requests."
+            },
+            {
+                type: 'Discord DM',
+                typeClass: 'type-dm',
+                content: "CONGRATS! You won a $50 Robux gift card! Claim it here: bit.ly/free-robux-2024",
+                sender: "From: GiftBot#1234",
+                isSafe: false,
+                feedback: "Scam! 'Free' offers on DMs are almost always phishing attempts."
+            },
+            {
+                type: 'Email',
+                typeClass: 'type-email',
+                content: "Your package update: Item #4829 has been shipped and will arrive on Thursday. Track here: https://official-shipping.com/track",
+                sender: "From: Shipping Services <updates@official-shipping.com>",
+                isSafe: true,
+                feedback: "Safe. The link uses HTTPS and the sender domain matches the content."
+            },
+            {
+                type: 'SMS',
+                typeClass: 'type-sms',
+                content: "Apple Support: Someone tryed to log in to your iCloud. If this wasn't you, reset at: http://apple-check.security-id.net",
+                sender: "From: 44321",
+                isSafe: false,
+                feedback: "Scam! Look at the typo ('tryed') and the non-official URL."
+            },
+            {
+                type: 'Email',
+                typeClass: 'type-email',
+                content: "Password Reset Request: We received a request to change your password for 'Cybervedmitra'. If you didn't do this, ignore this email.",
+                sender: "From: Accounts <accounts@cybervedmitra.com>",
+                isSafe: true,
+                feedback: "Safe. This is a standard security notification with no direct link to enter credentials."
+            }
+        ];
+
+        let currentMsgIndex = 0;
+        let score = 0;
+        let health = 100;
+
+        function updateDisplay() {
+            document.getElementById('progressVal').innerText = `${currentMsgIndex + 1} / ${messages.length}`;
+            document.getElementById('scoreVal').innerText = score;
+            document.getElementById('healthFill').style.width = `${health}%`;
+
+            const msg = messages[currentMsgIndex];
+            document.getElementById('msgType').innerText = msg.type;
+            document.getElementById('msgType').className = `message-type ${msg.typeClass}`;
+            document.getElementById('msgContent').innerText = msg.content;
+            document.getElementById('msgSender').innerText = msg.sender;
+
+            // Change health bar color based on integrity
+            if (health < 40) {
+                document.getElementById('healthFill').style.background = 'var(--game-danger)';
+            } else if (health < 70) {
+                document.getElementById('healthFill').style.background = '#eab308';
+            }
+        }
+
+        function handleChoice(userChoice) {
+            const msg = messages[currentMsgIndex];
+            const isCorrect = (userChoice === msg.isSafe);
+            const overlay = document.getElementById('feedbackOverlay');
+
+            overlay.style.display = 'flex';
+            if (isCorrect) {
+                score += 100;
+                overlay.innerText = '✅';
+                overlay.style.color = 'var(--game-success)';
+                overlay.style.background = 'rgba(34, 197, 94, 0.1)';
+            } else {
+                health -= 25;
+                if (health < 0) health = 0;
+                overlay.innerText = '❌';
+                overlay.style.color = 'var(--game-danger)';
+                overlay.style.background = 'rgba(239, 68, 68, 0.1)';
+            }
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                if (currentMsgIndex < messages.length - 1 && health > 0) {
+                    currentMsgIndex++;
+                    updateDisplay();
+                } else {
+                    endGame();
+                }
+            }, 800);
+        }
+
+        function endGame() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('statusBar').style.display = 'none';
+            document.getElementById('missionHeader').style.display = 'none';
+
+            const resultScreen = document.getElementById('resultScreen');
+            resultScreen.style.display = 'block';
+
+            if (health <= 0) {
+                document.getElementById('resultIcon').innerText = '💀';
+                document.getElementById('resultTitle').innerText = 'Mission Failed';
+                document.getElementById('resultTitle').style.color = 'var(--game-danger)';
+                document.getElementById('resultDesc').innerText = `Your digital shield was breached. You scored ${score} points. Practice more to become a Hero!`;
+            } else if (score === (messages.length * 100)) {
+                document.getElementById('resultIcon').innerText = '💎';
+                document.getElementById('resultTitle').innerText = 'Perfect Defense!';
+                document.getElementById('resultDesc').innerText = `Maximum score achieved! Your digital security skills are elite. You've earned the 'Digital Defender' status.`;
+            } else {
+                document.getElementById('resultIcon').innerText = '🎖️';
+                document.getElementById('resultTitle').innerText = 'Mission Accomplished';
+                document.getElementById('resultDesc').innerText = `Well done! You successfully identified most threats with a score of ${score}. Check your badges!`;
+            }
+        }
+
+        // Initialize
+        updateDisplay();
+    </script>
+</body>
+
+</html>

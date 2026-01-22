@@ -176,7 +176,6 @@
         </div>
     </header>
 
-    <!-- Full Screen Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay">
         <ul class="menu-links">
             <li>
@@ -251,6 +250,15 @@
                     <span class="menu-label">Dashboard</span>
                 </a>
             </li>
+            <li>
+                <a href="#" class="logout-link" onclick="logout(); return false;" style="color: #ef4444;">
+                    <svg class="menu-icon" style="stroke: #ef4444;" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span class="menu-label">Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -289,25 +297,27 @@
             </div>
 
             <div class="contact-form-container">
-                <form id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/mvzzjrkz" method="POST">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
                         </div>
                     </div>
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="What is this regarding?" required>
+                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" rows="6" placeholder="Write your message here..." required></textarea>
+                        <textarea id="message" name="message" rows="6" placeholder="Write your message here..."
+                            required></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="New Contact Form Submission | Cybervedmitra">
                     <button type="submit" class="btn btn-primary btn-send">
                         Send Message ⚡
                     </button>
@@ -316,14 +326,82 @@
         </div>
     </main>
 
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Cybervedmitra</a>
+                    <p class="footer-description">
+                        Empowering the next generation of digital citizens with essential cybersecurity skills through
+                        interactive learning and real-world simulations.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="learn.html">Start Learning</a></li>
+                        <li><a href="labs.html">Interactive Labs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="awareness.html">Awareness Hub</a></li>
+                        <li><a href="resources.html">Learning Materials</a></li>
+                        <li><a href="badges.html">Achievement Badges</a></li>
+                        <li><a href="trusted-sources.html">Trusted Sources</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 Cybervedmitra. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 4s-1 2-5 2c4 0 5 2 5 2s-1.5 2-4.5 2c4 0 5 2 5 2s-1.5 2-4.5 2 2 4-4 4c-5 0-11-4-11-12 0-3 2-5 2-5s-1.5 2-2 5" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="ui.js"></script>
     <script src="auth.js"></script>
     <script>
-        function toggleMenu() {
-            document.getElementById('menuOverlay').classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        }
-
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = e.target.querySelector('button');
